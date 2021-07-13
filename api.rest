@@ -1,0 +1,1376 @@
+### Get Student Token
+POST http://188.126.44.111/api/user/login
+Content-Type: application/json
+
+{
+    "Email":"user3@rudn.ru",
+    "Password":"1234"
+}
+
+
+### Get Admin Token
+POST http://127.0.0.1:3000/api/User/Login
+Content-Type: application/json
+
+{
+    "email":"rezaian-n@rudn.ru",
+    "password":"1234"
+}
+
+### User Logout
+GET http://188.126.44.111/api/Chat/Feed/1/3/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IlFuTjk4MU1NSGwiLCJpYXQiOjE2MjI2NjUxMjB9.cWSMCLkDYcdoB1Lur3y0sBU8ca5b0ZJK_RNVGE7jUD8
+
+
+### User Logout
+GET http://188.126.44.111/api/User/Logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMxNDY0ZTU1LTIyYWYtNDMwNi05ZmY4LWM2ZjFiYjkxZWJiNyIsInJvbGUiOiJzdHVkZW50IiwianRpIjoiR0xKajRjVFp2ZCIsImlhdCI6MTYyMDYyNzM2N30.KmBidpNRdpRcSkMv55Mornk6W4XhF4i8jQyNtExDvDw
+
+
+### Get User Profile filter Id
+### api/Profile/{id}
+
+GET http://188.126.44.111/api/Profile/72184796-12a8-43f4-9e3d-1f7a20ae553b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyMTg0Nzk2LTEyYTgtNDNmNC05ZTNkLTFmN2EyMGFlNTUzYiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImIwb2s1VExEdjAiLCJpYXQiOjE2MjA2MzE0OTJ9._sHSek5BFCVICXUj54phMXcrRAVW_kOd3FXeK0LYc7E
+
+### Get User Profile filter offset,limit
+### api/Profile/{offset}/{limit}
+GET http://188.126.44.111/api/Profile/1/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyMTg0Nzk2LTEyYTgtNDNmNC05ZTNkLTFmN2EyMGFlNTUzYiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImIwb2s1VExEdjAiLCJpYXQiOjE2MjA2MzE0OTJ9._sHSek5BFCVICXUj54phMXcrRAVW_kOd3FXeK0LYc7E
+
+
+### Add user to database
+POST http://188.126.44.111/Api/Profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "Name" : "user100",
+    "Birthday" : "2000-04-21",
+    "Sex" : 1,
+    "Email" : "user50@rudn.ru",
+    "Phone" : "9252706166",
+    "Address" : "Prospect mira ava 70",
+    "Country" : "Russia",
+    "City" : "Moscow",
+    "FacultyId" : 1,
+    "DepartmentId" : "2",
+    "FieldId" : "3",
+    "TypeStudy" : 4,
+    "FormStudy" : 5,
+    "YearStudy" : 6,
+    "Additional" : "test",
+    "Photo" : "photo",
+    "Access" : "student",
+    "Status" : 1,
+    "Password":"1234"
+}
+
+### Edit user data by id
+### Api/Profile/{id}
+PUT http://188.126.44.111/Api/Profile/f5cb250a-ee25-4965-a311-eb502579fda8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "Name" : "user100",
+    "Birthday" : "2000-04-21",
+    "Sex" : 1,
+    "Email" : "user51@rudn.ru",
+    "Phone" : "9252706166",
+    "Address" : "Prospect mira ava 70",
+    "Country" : "Russia",
+    "City" : "Moscow",
+    "FacultyId" : 1,
+    "DepartmentId" : "2",
+    "FieldId" : "3",
+    "TypeStudy" : 4,
+    "FormStudy" : 5,
+    "YearStudy" : 6,
+    "Additional" : "test",
+    "Photo" : "photo",
+    "Access" : "student",
+    "Status" : 1,
+    "Password":"1234"
+}
+
+
+
+### Delete user by [id]
+### Api/Profile
+DELETE http://188.126.44.111/Api/Profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":["2b383406-7ab3-4682-9a73-ae0c3ee61b07"]
+}
+
+
+
+### Get Faculty filter id,offset,limit
+### api/Faculty/{id}/{offset}/{limit}
+GET  http://188.126.44.111/Api/Faculty/1/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+### Add Faculty to database
+POST  http://188.126.44.111/Api/Faculty
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Title": "test1",
+    "Address" : "sdfsdfsd",
+    "Phone" : "7363673",
+    "Email" : "faqq@qrudn.ru",
+    "Description" : "this is a test",
+    "Photo" : "f1.jpg" ,
+    "Status" : 1
+}
+
+### Edit Faculty by id
+### /Api/Faculty/{id}
+PUT  http://188.126.44.111/Api/Faculty/11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Title": "test1",
+    "Address" : "sdfsdfsd",
+    "Phone" : "7363673111",
+    "Email" : "faqq@qrudn.ru",
+    "Description" : "this is a test",
+    "Photo" : "f1.jpg" ,
+    "Status" : 1
+}
+
+
+### Delete Faculty by [id]
+### Api/Faculty
+DELETE http://188.126.44.111/Api/Faculty
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":["10"]
+}
+
+
+### Get departement by id
+### Api/Department/{id}
+GET http://188.126.44.111/Api/Department/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get departement by id
+### Api/Department/Filter/{offset}/{limit}
+GET http://188.126.44.111/Api/Department/Filter/0/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Add departement 
+### Api/Department/
+POST http://188.126.44.111/Api/Department
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+        "FacultyId": 11,
+        "Title": "Изучение отдельных модулей12345",
+        "Description": "По итогам успешного освоения модуля/модулей слушатель получит документ об обучении по выбранному модулю/модулям.",
+        "Status": 1
+}
+
+### Edit departement by id
+### Api/Department/{id}
+PUT http://188.126.44.111/Api/Department/38
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+        "FacultyId": 11,
+        "Title": "Изучение отдельных модулей112",
+        "Description": "test3",
+        "Status": 1
+}
+
+
+### Delete Department by [id]
+### Api/Department
+DELETE http://188.126.44.111/Api/Department
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[20,21,22,23]
+}
+
+
+### Get Field by id
+### Api/Field/{id}
+GET http://188.126.44.111/Api/Field/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Field by filter departmentid,coursecode,offset,limit
+### Api/Field/Filter/{departmentid}/{coursecode}/{offset}/{limit}
+GET http://188.126.44.111/Api/Field/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Add Field 
+### Api/Field
+### Check Duplicate [DepartmentId,Title,CourseCode ]
+POST http://188.126.44.111/Api/Field
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "DepartmentId": 2,
+        "Title": "Четыре базовых модуля по русскому языку1",
+        "CourseCode": 1111,
+        "Description": "Описание 1",
+        "Status": 1
+}
+
+### Edit Field  by id
+### Api/Field/{id}
+### Check Duplicate [DepartmentId,Title,CourseCode ]
+PUT http://188.126.44.111/Api/Field/12
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "DepartmentId": 1,
+        "Title": "Четыре базовых модуля по русскому языку1",
+        "CourseCode": 11111,
+        "Description": "Описание 1vccxv",
+        "Status": 1
+}
+
+### Delete Field by [id]
+### Api/Field
+DELETE http://188.126.44.111/Api/Field
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[12]
+}
+
+
+### Get Subject by id
+### Api/Field/{id}
+GET http://188.126.44.111/Api/Subject/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Subject by filter fieldid,offset,limit
+### Api/Subject/Filter/{fieldid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Subject/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Subject by [id]
+### Api/Subject
+DELETE http://188.126.44.111/Api/Subject
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[10]
+}
+
+### Add Subject 
+### Api/Subject
+### Check Duplicate [Title,FieldId ]
+POST http://188.126.44.111/Api/Subject
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+       "Title": "sdgsfdgf1",
+        "Description": "this is a test",
+        "FieldId": 1,
+        "Image": "fdsfsdfs",
+        "Status": 1
+}
+
+### Edit Subject  by id
+### Api/Subject/{id}
+### Check Duplicate [Title,FieldId ]
+PUT http://188.126.44.111/Api/Subject/9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "Title": "sdgsfdgf1",
+        "Description": "this is a test",
+        "FieldId": 1,
+        "Image": "fdsfsdfs",
+        "Status": 2
+}
+
+
+### Get Model by id
+### Api/Model/{id}
+GET http://188.126.44.111/Api/Model/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Model by filter fieldid,offset,limit
+### Api/Model/Filter/{facultyid}/{departmentid}/{fieldid}/{subjectid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Model/Filter/0/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Model by [id]
+### Api/Model
+DELETE http://188.126.44.111/Api/Model
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[5]
+}
+### Add Model 
+### Api/Model
+### Check Duplicate [Title,FacultyId,DepartmentId,FieldId,SubjectId ]
+POST http://188.126.44.111/Api/Model
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+        "Title": "ИИ модель 123",
+        "FacultyId": 1,
+        "DepartmentId": 1,
+        "FieldId": 1,
+        "SubjectId": 1,
+        "UrlModel": "http://37.18.79.144/ai/api/",
+        "Parameters": "1234",
+        "Description": "Описание 1",
+        "GeneralModel": false,
+        "Status": 1
+}
+
+### Edit Model  by id
+### Api/Model/{id}
+### Check Duplicate [Title,FacultyId,DepartmentId,FieldId,SubjectId ]
+PUT http://188.126.44.111/Api/Model/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+{
+        "Title": "ИИ модель 123",
+        "FacultyId": 1,
+        "DepartmentId": 1,
+        "FieldId": 1,
+        "SubjectId": 1,
+        "UrlModel": "http://37.18.79.144/ai/api/",
+        "Parameters": "1234",
+        "Description": "Описание 1",
+        "GeneralModel": false,
+        "Status": 1
+}
+
+
+### Get Faq by id
+### Api/Model/{id}
+GET http://188.126.44.111/Api/Faq/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Faq by filter fieldid,offset,limit
+### Api/Faq/Filter/{:groupid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Faq/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Faq by [id]
+### Api/Faq
+DELETE http://188.126.44.111/Api/Faq
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[8]
+}
+
+### Add Faq 
+### Api/Faq
+### Check Duplicate [GroupId,Question]
+POST http://188.126.44.111/Api/Faq
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "GroupId": 1,
+    "Question": "Вопрос 12322",
+    "Answer": "Ответ 1",
+    "Status": 1
+}
+
+### Edit Faq  by id
+### Api/Faq/{id}
+### Check Duplicate [Title,FacultyId,DepartmentId,FieldId,SubjectId ]
+PUT http://188.126.44.111/Api/Faq/12
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+{
+    "GroupId": 1,
+    "Question": "Вопрос 1",
+    "Answer": "Ответ 1",
+    "Status": 1
+}
+
+
+### Get Group by id
+### Api/Group/{id}
+GET http://188.126.44.111/Api/Group/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Group by filter fieldid,offset,limit
+### Api/Group/Filter/{yearstudy}/{facultyid}/{departmentid}/{courseid}/{typestudy}/{formstudy}/{offset}/{limit}
+GET http://188.126.44.111/Api/Group/Filter/0/0/0/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Group by [id]
+### Api/Group
+DELETE http://188.126.44.111/Api/Group
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[10]
+}
+
+### Add Group 
+### Api/Group
+### Check Duplicate [Title,YearStudy]
+POST http://188.126.44.111/Api/Group
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "YearStudy": "2020",    
+    "Title": "НИБ-20101",
+    "FacultyId": 1,
+    "DepartmentId": 1,
+    "TypeStudy": 1,
+    "FormStudy": 1,
+    "Description": "Описание 1",
+    "Students": "2,3,4",
+    "Status": 1
+}
+
+### Edit Group  by id
+### Api/Group/{id}
+### Check Duplicate [Title,YearStudy]
+PUT http://188.126.44.111/Api/Group/12
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+
+{
+    "YearStudy": "2020",    
+    "Title": "НИБ-2011",
+    "FacultyId": 1,
+    "DepartmentId": 1,
+    "TypeStudy": 1,
+    "FormStudy": 1,
+    "Description": "Описание 1",
+    "Students": "2,3,4",
+    "Status": 1
+}
+
+
+### Get GroupStudent by id
+### Api/GroupStudent/{id}
+GET http://188.126.44.111/Api/GroupStudent/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get GroupStudent by filter 
+### Api/GroupStudent/Filter/{groupid}/{userid}/{offset}/{limit}
+GET http://188.126.44.111/Api/GroupStudent/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete GroupStudent by [id]
+### Api/GroupStudent
+DELETE http://188.126.44.111/Api/GroupStudent
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "items":[10,12,11]
+}
+
+### Add GroupStudent 
+### Api/GroupStudent
+### Check Duplicate [GroupId,UserId]
+POST http://188.126.44.111/Api/GroupStudent
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "groupId": 1,
+    "userId": "1792ea28-7529-44a0-a563-6a1c16cd9059"
+}
+
+### Edit GroupStudent  by id
+### Api/GroupStudent/{id}
+### Check Duplicate [GroupId,userId]
+PUT http://188.126.44.111/Api/GroupStudent/14
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+{
+    "groupId": 2,
+    "userId": "1792ea28-7529-44a0-a563-6a1c16cd9059"  
+}
+
+
+
+### Get GroupRelation by id
+### Api/GroupRelation/{id}
+GET http://188.126.44.111/Api/GroupRelation/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get GroupRelation by filter fieldid,offset,limit
+### Api/GroupRelation/Filter/{groupid}/{teacherid}/{subjectid}/{offset}/{limit}
+GET http://188.126.44.111/Api/GroupRelation/Filter/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete GroupRelation by [id]
+### Api/GroupReGroupRelationlation
+DELETE http://188.126.44.111/Api/GroupRelation
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[5]
+}
+
+### Add GroupRelation 
+### Api/GroupRelation
+### Check Duplicate [GroupId,TeacherId,SubjectId]
+POST http://188.126.44.111/Api/GroupRelation
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "GroupId": 1,
+    "TeacherId": 123,
+    "SubjectId": 1,
+    "Status": 1
+}
+
+### Edit GroupRelation  by id
+### Api/GroupRelation/{id}
+### Check Duplicate [GroupId,StudentId]
+PUT http://188.126.44.111/Api/GroupRelation/7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+{
+    "GroupId": 1,
+    "TeacherId": 1,
+    "SubjectId": 1,
+    "Status": 1
+}
+
+
+### Get ChatRoom by id
+### Api/ChatRoom/{id}
+GET http://188.126.44.111/Api/ChatRoom/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get ChatRoom by filter fieldid,offset,limit
+### Api/ChatRoom/Filter/{roomaccess}/{offset}/{limit}
+GET http://188.126.44.111/Api/ChatRoom/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete ChatRoom by [id]
+### Api/ChatRoom
+DELETE http://188.126.44.111/Api/ChatRoom
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[5]
+}
+
+### Add ChatRoom 
+### Api/ChatRoom
+### Check Duplicate [RoomName,RoomAccess]
+POST http://188.126.44.111/Api/ChatRoom
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "RoomName": "Room12",
+    "RoomAccess": "1",
+    "Status": 1
+}
+
+### Edit ChatRoom  by id
+### Api/ChatRoom/{id}
+### Check Duplicate [RoomName,RoomAccess]
+PUT http://188.126.44.111/Api/ChatRoom/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+{
+    "RoomName": "Room120",
+    "RoomAccess": "1",
+    "Status": 1
+}
+
+
+### Get Chat by id
+### Api/Chat/{id}
+GET http://188.126.44.111/Api/Chat/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Chat by filter senderid,reciverid,roomid,offset,limit
+### Api/Chat/Filter/{senderid}/{reciverid}/{roomid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Chat/Filter/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Chat by [id]
+### Api/Chat
+DELETE http://188.126.44.111/Api/Chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[5]
+}
+
+### Add Chat
+### Api/Chat
+POST http://188.126.44.111/Api/Chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+        "SenderId": 1,
+        "ReciverId": 0,
+        "RoomId": 1,
+        "Content": "1",
+        "File": "Hi 1",
+        "Status": 1
+}
+
+### Edit Chat  by id
+### Api/Chat/{id}
+PUT http://188.126.44.111/Api/Chat/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+{
+        "SenderId": 1,
+        "ReciverId": 0,
+        "RoomId": 1,
+        "Content": "1",
+        "File": "Hi 1",
+        "Status": 1
+}
+
+### Get Question by id
+### Api/Question/{id}
+GET http://188.126.44.111/Api/Question/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Question by filter senderid,reciverid,roomid,offset,limit
+### Api/Question/Filter/{teacherid}/{subjectid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Question/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Question by [id]
+### Api/Question
+DELETE http://188.126.44.111/Api/Question
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[8]
+}
+
+### Add Question
+### Api/Question
+POST http://188.126.44.111/Api/Question
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "TeacherId": 1,
+    "SubjectId": 2,
+    "QuestionContent": "Q1ddd12",
+    "AnswerContent": "A1ddd",
+    "QuestionType": 1,
+    "Model": 1,
+    "Status": 1
+}
+
+### Edit Question  by id
+### Api/Question/{id}
+### Check Duplicate [TeacherId,SubjectId,QuestionContent,QuestionType]
+PUT http://188.126.44.111/Api/Question/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "TeacherId": 1,
+    "SubjectId": 2,
+    "QuestionContent": "Q12",
+    "AnswerContent": "A1ddd",
+    "QuestionType": 1,
+    "Model": 1,
+    "Status": 1
+}
+
+
+### Get Variant by id
+### Api/Variant/{id}
+GET http://188.126.44.111/Api/Variant/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Variant by filter grouprelationid,offset,limit
+### Api/Variant/Filter/{grouprelationid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Variant/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Variant by [id]
+### Api/Variant
+DELETE http://188.126.44.111/Api/Variant
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[7]
+}
+
+### Add Variant
+### Api/Variant
+### Check Duplicate [Title,GroupRelationId]
+POST http://188.126.44.111/Api/Variant
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "Title": "Группа вопросов  «Вариант 13»",
+    "GroupRelationId": 1,
+    "Status": 1
+}
+
+### Edit Variant  by id
+### Api/Variant/{id}
+### Check Duplicate [Title,GroupRelationId]
+PUT http://188.126.44.111/Api/Variant/8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "Title": "Группа вопросов  «Вариант 113»",
+    "GroupRelationId": 1,
+    "Status": 1
+}
+
+
+### Get VariantQuestion by id
+### Api/VariantQuestion/{id}
+GET http://188.126.44.111/Api/VariantQuestion/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get VariantQuestion by filter grouprelationid,offset,limit
+### Api/VariantQuestion/Filter/{variantid}/{questionid}/{offset}/{limit}
+GET http://188.126.44.111/Api/VariantQuestion/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete VariantQuestion by [id]
+### Api/VariantQuestion
+DELETE http://188.126.44.111/Api/VariantQuestion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[6]
+}
+
+### Add VariantQuestion
+### Api/VariantQuestion
+### Check Duplicate [QuestionId,VariantId]
+POST http://188.126.44.111/Api/VariantQuestion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+       "QuestionId": 4,
+        "VariantId": 12,
+        "Status": 1
+}
+
+### Edit VariantQuestion  by id
+### Api/VariantQuestion/{id}
+### Check Duplicate [QuestionId,VariantId]
+PUT http://188.126.44.111/Api/VariantQuestion/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+       "QuestionId": 4,
+        "VariantId": 12,
+        "Status": 1
+}
+
+
+
+
+### Get Exam by id
+### Api/Exam/{id}
+GET http://188.126.44.111/Api/Exam/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get Exam by filter grouprelationid,offset,limit
+### Api/Exam/Filter/{variantid}/{questionid}/{offset}/{limit}
+GET http://188.126.44.111/Api/Exam/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete Exam by [id]
+### Api/Exam
+DELETE http://188.126.44.111/Api/Exam
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[12]
+}
+
+### Add Exam
+### Api/Exam
+### Check Duplicate [QuestionId,VariantId]
+POST http://188.126.44.111/Api/Exam
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "Title": "Экономика и юриспруденция.",
+    "TeacherId": 1,
+    "GroupId": 1,
+    "ExamDateTime": "2009-04-20 06:07:32",
+    "ExamDuration": 30,
+    "ExamLimit": 1,
+    "DescriptionShort": "Описание короткое",
+    "Description": "Описание 1",
+    "ExamImage": "exam1.jpg",
+    "ExamSetting": "1,1,1,1,1,1,1",
+    "Status": 1
+}
+
+### Edit Exam  by id
+### Api/Exam/{id}
+### Check Duplicate [QuestionId,VariantId]
+PUT http://188.126.44.111/Api/Exam/13
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "Title": "Экономика и юриспруденция.",
+    "TeacherId": 1,
+    "GroupId": 1,
+    "ExamDateTime": "2009-04-20 06:07:32",
+    "ExamDuration": 30,
+    "ExamLimit": 1,
+    "DescriptionShort": "Описание 1короткое",
+    "Description": "Описание 1",
+    "ExamImage": "exam1.jpg",
+    "ExamSetting": "1,1,1,1,1,1,1",
+    "Status": 1
+}
+
+
+### Get ExamDocument by id
+### Api/ExamDocument/{id}
+GET http://188.126.44.111/Api/ExamDocument/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get ExamDocument by filter grouprelationid,offset,limit
+### Api/ExamDocument/Filter/{examid}/{offset}/{limit}
+GET http://188.126.44.111/Api/ExamDocument/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete ExamDocument by [id]
+### Api/ExamDocument
+DELETE http://188.126.44.111/Api/ExamDocument
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[8]
+}
+
+### Add ExamDocument
+### Api/ExamDocument
+POST http://188.126.44.111/Api/ExamDocument
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "ExamId": 1,
+    "ExamFile": "file1.pdf",
+    "Status": 1
+}
+
+### Edit ExamDocument  by id
+### Api/ExamDocument/{id}
+PUT http://188.126.44.111/Api/ExamDocument/10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+     "ExamId": 1,
+    "ExamFile": "file1.pdf",
+    "Status": 1
+}
+
+
+### Get ExamScore by id
+### Api/ExamScore/{id}
+GET http://188.126.44.111/Api/ExamScore/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get ExamScore by filter grouprelationid,offset,limit
+### Api/ExamScore/Filter/{examid}/{studentid}/{questionid}/{offset}/{limit}
+GET http://188.126.44.111/Api/ExamScore/Filter/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete ExamScore by [id]
+### Api/ExamScore
+DELETE http://188.126.44.111/Api/ExamScore
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[5]
+}
+
+### Add ExamScore
+### Api/ExamScore
+### Check Duplicate [ExamId,StudentId,QuestionId]
+POST http://188.126.44.111/Api/ExamScore
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "ExamId": 1,
+    "StudentId": 22,
+    "QuestionId": 1,
+    "Score1": 21,
+    "Score2": 22,
+    "Status": 1
+}
+
+### Edit ExamScore  by id
+### Api/ExamScore/{id}
+### Check Duplicate [ExamId,StudentId,QuestionId]
+PUT http://188.126.44.111/Api/ExamScore/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "ExamId": 1,
+    "StudentId": 22,
+    "QuestionId": 1,
+    "Score1": 50,
+    "Score2": 22,
+    "Status": 1
+}
+
+
+### Get ExamComment by id
+### Api/ExamComment/{id}
+GET http://188.126.44.111/Api/ExamComment/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get ExamComment by filter grouprelationid,offset,limit
+### Api/ExamComment/Filter/{examid}/{studentid}/{questionid}/{offset}/{limit}
+GET http://188.126.44.111/Api/ExamComment/Filter/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete ExamComment by [id]
+### Api/ExamComment
+DELETE http://188.126.44.111/Api/ExamComment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[5]
+}
+
+### Add ExamComment
+### Api/ExamComment
+POST http://188.126.44.111/Api/ExamComment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "ExamId": 1,
+    "StudentId": 1,
+    "QuestionId": 1,
+    "Comment": "Comment 1",
+    "Status": 1
+}
+
+### Edit ExamComment  by id
+### Api/ExamComment/{id}
+
+PUT http://188.126.44.111/Api/ExamComment/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "ExamId": 1,
+    "StudentId": 1,
+    "QuestionId": 1,
+    "Comment": "Comment 1",
+    "Status": 1
+}
+
+
+### Get ExamRatting by id
+### Api/ExamRatting/{id}
+GET http://188.126.44.111/Api/ExamRatting/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get ExamRatting by filter grouprelationid,offset,limit
+### Api/ExamRatting/Filter/{examid}/{studentid}/{offset}/{limit}
+GET http://188.126.44.111/Api/ExamRatting/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete ExamRatting by [id]
+### Api/ExamRatting
+DELETE http://188.126.44.111/Api/ExamComment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[2]
+}
+
+### Add ExamRatting
+### Api/ExamRatting
+POST http://188.126.44.111/Api/ExamRatting
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+     "ExamId": 1,
+    "StudentId": 1,
+    "Ratting": 4,
+    "Comment": "Comment 1",
+    "Status": 1
+}
+
+### Edit ExamRatting  by id
+### Api/ExamRatting/{id}
+
+PUT http://188.126.44.111/Api/ExamComment/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "ExamId": 1,
+    "StudentId": 1,
+    "QuestionId": 1,
+    "Comment": "Comment 1",
+    "Status": 1
+}
+
+
+### Get SubGroup by id
+### Api/SubGroup/{id}
+GET http://188.126.44.111/Api/SubGroup/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get SubGroup by filter groupid,offset,limit
+### Api/SubGroup/Filter/{groupid}/{offset}/{limit}
+GET http://188.126.44.111/Api/SubGroup/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete SubGroup by [id]
+### Api/SubGroup
+DELETE http://188.126.44.111/Api/SubGroup
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[2]
+}
+
+### Add SubGroup
+### Api/SubGroup
+POST http://188.126.44.111/Api/SubGroup
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+     "Title": "МА-3161",
+    "GroupId": 1,
+    "Status": 1
+}
+
+### Edit SubGroup  by id
+### Api/SubGroup/{id}
+
+PUT http://188.126.44.111/Api/SubGroup/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "Title": "МА-3167",
+    "GroupId": 1,
+    "Status": 1
+}
+
+
+### Get SubGroupStudent by id
+### Api/SubGroupStudent/{id}
+GET http://188.126.44.111/Api/SubGroupStudent/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get SubGroupStudent by filter subgroupid,studentid,offset,limit
+### Api/SubGroupStudent/Filter/{subgroupid}/{studentid}/{offset}/{limit}
+GET http://188.126.44.111/Api/SubGroupStudent/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Delete SubGroupStudent by [id]
+### Api/SubGroupStudent
+DELETE http://188.126.44.111/Api/SubGroupStudent
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[2]
+}
+
+### Add SubGroupStudent
+### Api/SubGroupStudent
+POST http://188.126.44.111/Api/SubGroupStudent
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+       "SubGroupId": 1,
+        "StudentId": 2,
+        "Status": 1
+}
+
+### Edit SubGroupStudent  by id
+### Api/SubGroupStudent/{id}
+
+PUT http://188.126.44.111/Api/SubGroupStudent/50
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "SubGroupId": 1,
+        "StudentId": 2,
+        "Status": 1
+}
+
+
+
+### Get SystemAlert by id
+### Api/SystemAlert/{id}
+GET http://188.126.44.111/Api/SystemAlert/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+### Get SystemAlert by filter eventid,eventtype,studentid,offset,limit
+### Api/SystemAlert/Filter/{eventid}/{eventtype}/{studentid}/{offset}/{limit}
+GET http://188.126.44.111/Api/SystemAlert/Notification/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+
+### Delete SystemAlert by [id]
+### Api/SystemAlert
+DELETE http://188.126.44.111/Api/SystemAlert
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzNzhjN2U5LWNmN2EtNDc5MC1iNTgyLWIyYjJmMjMxYzAwOSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkZCQXBtcmVuVlYiLCJpYXQiOjE2MjA2NDg4Mjh9.jalDGOwUtpp1CYTb-YFiWQcveTu2GxpwmG_TMTZrwmE
+
+{
+    "Items":[2]
+}
+
+### Add SystemAlert
+### Api/SystemAlert
+POST http://188.126.44.111/Api/SystemAlert
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+
+{
+    "eventId": 1,
+    "eventType": 1,
+    "userId": "962c20a8-682c-4c46-b1a5-4e26556f223f",
+    "message": "Message 1",
+    "alertDateTime": "2009-04-20 06:07:31",
+    "status": 1
+}
+
+### Edit SystemAlert  by id
+### Api/SystemAlert/{id}
+
+PUT http://188.126.44.111/Api/SystemAlert/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMWQ1YmZhLWUyY2ItNDI5Zi1hODIwLTc4MzRmMGUxY2NkYSIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjFoak12QU1WVXkiLCJpYXQiOjE2MjA3NDAxNjJ9.VSr-swS4f9Di3ff1hGTPQacxnub8XzYi8CIILeqUw2I
+
+{
+    "EventId": 1,
+    "EventType": 1,
+    "StudentId": 1,
+    "Message": "Message 1",
+    "AlertDateTime": "2009-04-20 06:07:31",
+    "Status": 1
+}
+
+###
+Get http://188.126.44.111/api/Chat/Feed/1d9b2c6a-572c-445f-b47b-f39197d37908/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IlFFVlZUQjNvQVIiLCJpYXQiOjE2MjI2NDI0NTR9.i7ED9OaF0uliGdtDB8Ghe_YzwpQRmzuU3Jndcp3aDjk
+
+###
+Get http://188.126.44.111/api/Chat/Feed/b316858c-28ef-4dc8-ad0a-876f009249a9/0/0/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IlFFVlZUQjNvQVIiLCJpYXQiOjE2MjI2NDI0NTR9.i7ED9OaF0uliGdtDB8Ghe_YzwpQRmzuU3Jndcp3aDjk
+
+
+###
+Get http://188.126.44.111/api/Chat/Feed/0/2/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IlFFVlZUQjNvQVIiLCJpYXQiOjE2MjI2NDI0NTR9.i7ED9OaF0uliGdtDB8Ghe_YzwpQRmzuU3Jndcp3aDjk
+
+###
+Get http://188.126.44.111/api/Chat/List
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+
+### Api/SystemAlert
+POST http://188.126.44.111/Api/Chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+{
+    "roomId": 0,
+    "recipientId": "a567f8e9-725c-41e1-9007-027207678db7",
+    "msgContent": "hi gfdg",
+    "msgFile": ""
+}
+
+
+### Get All Grpups by Filter
+###/facultyid/departmentid/fieldid/typestudy/offset/limit
+GET http://188.126.44.111/Api/Group/Filter/0/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+### Get Group by id
+GET http://188.126.44.111/Api/Group/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+### Add Group
+POST http://188.126.44.111/Api/Group
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+{
+
+    "title":"test",
+    "yearStudy":"2019-2021",
+    "fieldId":10,
+    "typeStudy":2,
+    "description":"hgfhgfhgf",
+    "status":1
+}
+
+### Get All YearStudy
+
+GET http://188.126.44.111/Api/Helper/YearStudy
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+
+### Get Subject by id 
+### Api/Subject/{id}
+GET http://188.126.44.111/Api/Subject/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+### Get Subject by filter 
+### Api/subject/Filter/{facultyid}/{departmentid}/fieldid/{offset}/{limit}
+GET http://188.126.44.111/Api/Subject/Filter/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+
+
+### Add Subject 
+POST http://188.126.44.111/Api/Subject
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InNlTG0xdVgxQkwiLCJpYXQiOjE2MjI5NTgyMDh9.yItvuRoT-m7VU_86ypQK9l4nK75sd3RS06zmjnIkiiw
+
+{
+
+    "title":"test 222",
+    "description":"Описание 100",
+    "image":"subpic100.jpg",
+    "fieldId":2
+    
+}

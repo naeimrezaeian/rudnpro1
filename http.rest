@@ -1,0 +1,209 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImYyaUtjU1pLWmciLCJpYXQiOjE2MjYyMDg0MzQsImV4cCI6MTYyNjIxNTYzNH0.1z4NubmDD2YG49tCLoDDMao30TmPzyB6x9L_SzvBs24
+
+@hostname=http://188.126.44.111/api
+@hostname2=http://127.0.0.1:3000/api
+###
+GET http://127.0.0.1:3000
+
+###
+POST http://188.126.44.111/api/user/login
+Content-Type: application/json
+
+{
+    "email":"user3@rudn.ru",
+    "password":"1234"
+}
+
+
+
+###
+POST {{hostname}}/user/login
+Content-Type: application/json
+
+{
+    "email":"rezaian-n@rudn.ru",
+    "password":"1234"
+}
+
+
+###
+GET http://127.0.0.1:3000/user/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwianRpIjoiREVPcWRRc09MTyIsImlhdCI6MTYxOTkwNTAyMn0.vH97HCNHB7ApJ7QPHmnuNYj6o1fKxDf3VQenke8XRGs
+
+###
+GET http://127.0.0.1:3000/api/Profile/04faadb9-a27e-4e31-bbd9-82abfc3f1e46
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI2ZDA2MWNkLTUyNDQtNGE1YS1hNTIzLWRkOWZiNmQwNWZkNyIsInJvbGUiOiJzdHVkZW50IiwianRpIjoiV1lGNjdCVHJESCIsImlhdCI6MTYxOTk1NTA3OH0.-fAYDbTnP5uaU5VK0MP6g79F30WUsNIIQSsH147GWCs
+###
+GET http://188.126.44.111/api/Profile/Teachers/0/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU1NTI4Y2YxLTllMjEtNDQ5ZS04OWMyLTk5OGIyOWUzZjI3MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImhSYmo3QVFVem4iLCJpYXQiOjE2MTk5NTY1MjR9.6pTH4VDljTLsdRw4CfxsIQOsuHhwVqzJ8LOs6vE_ZX0
+
+
+###
+DELETE http://127.0.0.1:3000/Profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6IjEiLCJqdGkiOiJybkViblpBNHlJIiwiaWF0IjoxNjE5NjE1MjMxfQ.LkpRMyPm5hL34J_GFC1WI0S3V0T5m6uwTgJrPhZlj0E
+
+{
+    "Items":[2]
+}
+
+###
+PUT http://127.0.0.1:3000/Profile/11
+Content-Type: application/json
+
+{
+    "Name" : "naeimre",
+    "Email" : "naeim@naeim.ru"
+}
+
+###
+POST http://127.0.0.1:3000/Api/Profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NDJjOTdiLTEzMDctNDg4YS1iZDJjLWY3ZDg2MDQzODA0MiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBUcUJzaDNCdnUiLCJpYXQiOjE2MjAxNDA0NDJ9.aLfzFcJxfY2jw_oM8LWH2znhzWQEqOI6R55M6t5kYVo
+
+{
+    "Name" : "user100",
+    "Birthday" : "2000-04-21",
+    "Sex" : 1,
+    "Email" : "user100@rudn.ru",
+    "Phone" : "9252706166",
+    "Address" : "Prospect mira ava 70",
+    "Country" : "Russia",
+    "City" : "Moscoww",
+    "FacultyId" : 1,
+    "DepartmentId" : "2",
+    "FieldId" : "3",
+    "TypeStudy" : 4,
+    "FormStudy" : 5,
+    "YearStudy" : 6,
+    "Additional" : "test",
+    "Photo" : "photo",
+    "Access" : "student",
+    "Status" : 1,
+    "Password1":"$10$cPeqphlqybcfvCQYKz5L1ORLcQKMsRdQqZvnnDurgmZ613oajjct6"
+}
+
+
+###
+PUT http://127.0.0.1:3000/Profile/46
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInJvbGUiOiJzdHVkZW50IiwianRpIjoiMTBSSWlJNllLNiIsImlhdCI6MTYxOTkwNzU0MH0.pjPl4xzw3dRV-akqPhvmgNHugoVnROYdg7UnrZDvu5E
+
+{
+    "Name" : "naeeeeim  ",
+    "Birthday" : "2000-04-21",
+    "Sex" : 1,
+    "Email" : "na@eimq.ru",
+    "Phone" : "9252706166",
+    "Address" : "msocow",
+    "Country" : "russia",
+    "City" : "moscow",
+    "FacultyId" : 1,
+    "DepartmentId" : "2",
+    "FieldId" : "3",
+    "TypeStudy" : 4,
+    "FormStudy" : 5,
+    "YearStudy" : 6,
+    "Additional" : "test",
+    "Photo" : "photo",
+    "Access" : "student",
+    "Status" : 1
+}
+
+
+
+###
+GET {{hostname}}/SubjectUser/3
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+### /Filter/:subjectid/:offset/:limit
+GET {{hostname}}/SubjectUser/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{hostname}}/SubjectUser
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "dataArray":[{"userId":"0a1d1bda-c674-4a2b-b6d6-82022c3779b8","subjectId":"4"},{"userId":"0a1d1bda-c674-4a2b-b6d6-82022c3779b8","subjectId":"3"}]
+   
+}
+
+
+
+###
+GET {{hostname}}/Faculty/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{hostname}}/Department/Filter/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+GET {{hostname2}}/Field/Filter/1/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+#/:groupid/:userid/:yearstudy/:facultyid/:departmentid/:fieldid/:subjectid/:offset/:limit
+GET {{hostname}}/GroupRelation/Filter/0/0/0/0/0/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{hostname}}/GroupStudent/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{hostname2}}/Question/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{hostname2}}/Question/2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{hostname2}}/Question
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+ "userId":"108e5270-91ee-471b-adfc-b874992794b1",
+ "subjectId":2,
+ "questionContent":"aaa3",
+ "questionType":1,
+ "questionScore":5,
+ "model":1,
+ "status" :1,
+"answers":[{"answerContent":"q1","answerCorrect":true},{"answerContent":"q2","answerCorrect":false}]
+}
+
+
+###
+PUT {{hostname2}}/User/Status/fe7fbe6b-1701-47e7-b23d-a4a9fefbf225
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "status":2
+}
+
+
+###
+#/Filter/:groupid/:userid/:offset/:limit
+GET {{hostname2}}/SubGroupStudent/Filter/0/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}

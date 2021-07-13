@@ -1,0 +1,45 @@
+use chat4;
+SELECT * FROM message_recipients as mr
+LEFT OUTER JOIN messages as m ON mr.messageId= m.id
+where mr.roomId=2 and mr.roomId IN (SELECT roomId FROM room_users WHERE userId = '962c20a8-682c-4c46-b1a5-4e26556f223f' and roomId=2)
+order by createDate desc
+-- SELECT * FROM message_recipients as mr 
+-- LEFT OUTER JOIN messages as m ON mr.messageId= m.id
+-- where (mr.recipientId='962c20a8-682c-4c46-b1a5-4e26556f223f' and mr.creatorId='ffa22f20-43af-452f-afd4-88754c6337b2') or (mr.recipientId='ffa22f20-43af-452f-afd4-88754c6337b2' and mr.creatorId='962c20a8-682c-4c46-b1a5-4e26556f223f')
+
+
+-- chat list & chat feed
+
+
+
+-- mr.isGroup,mr.createDate,mr.createDate,mr.createDate,mr.recipientId,mr.roomId,mr.messageId
+use chat6;
+select * from (
+select topPart.id,topPart.isGroup,topPart.createDate,topPart.userId,topPart.roomId,topPart.name,topPart.photo,m.msgContent,m.msgFile from (
+select part.id,part.isGroup,part.createDate,part.userId,part.roomId,part.name,part.photo,part.messageId,max(part.maxMessageId) as message from (
+select part1.* from (
+select mr.id,mr.isGroup,mr.createDate,mr.creatorId as userId,mr.roomId,mr.messageId,MAX(mr.messageId)  as maxMessageId ,u.name,u.photo
+from message_recipients as mr
+LEFT OUTER JOIN users as u On u.id = mr.creatorId
+
+where  mr.recipientId='962c20a8-682c-4c46-b1a5-4e26556f223f'  and mr.isGroup = false  GROUP BY creatorId  ) as part1
+
+union 
+
+select part2.* from (
+select mr.id,mr.isGroup,mr.createDate ,mr.recipientId as userId ,mr.roomId,mr.messageId,MAX(mr.messageId)  as maxMessageId ,u.name,u.photo
+from message_recipients as mr
+LEFT OUTER JOIN users as u On u.id = mr.recipientId
+where  mr.creatorId='962c20a8-682c-4c46-b1a5-4e26556f223f'  and mr.isGroup = false  GROUP BY mr.recipientId  ) as part2
+) as part
+GROUP BY part.userId) as topPart
+LEFT OUTER JOIN messages as m On m.id = topPart.message
+
+union 
+select partGroup.id,partGroup.isGroup,partGroup.createDate,partGroup.creatorId,partGroup.roomId,partGroup.roomName,partGroup.photo,m.msgContent,m.msgFile from (
+SELECT mr.id,mr.isGroup,mr.createDate,mr.creatorId,mr.roomId,r.roomName, COALESCE(null) AS photo,max(mr.messageId) as messageId
+FROM message_recipients as mr 
+LEFT OUTER JOIN rooms as r On r.id = mr.roomId
+where  mr.isGroup = true and mr.roomId IN (SELECT roomId FROM room_users WHERE userId = '962c20a8-682c-4c46-b1a5-4e26556f223f') group by  roomId) as partGroup
+LEFT OUTER JOIN messages as m On m.id = partGroup.messageId) as ChatList 
+order by ChatList.createDate desc
