@@ -17,6 +17,7 @@ module.exports = function(sequelize,Sequelize) {
     SubGroupStudent.associate = (models) => { 
         SubGroupStudent.belongsTo(models.User,{foreignKey : {          allowNull: false        }})
         SubGroupStudent.belongsTo(models.SubGroup,{foreignKey : {          allowNull: false        }})
+      
     };
 return SubGroupStudent;
 };

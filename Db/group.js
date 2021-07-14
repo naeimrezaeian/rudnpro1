@@ -39,7 +39,7 @@ module.exports = function(sequelize,Sequelize) {
     Group.associate = (models) => { 
         Group.hasMany(models.GroupStudent,{foreignKey : 'groupId'})
         Group.hasMany(models.GroupRelation,{foreignKey : 'groupId'})
-        Group.hasMany(models.SubGroup,{foreignKey : 'groupId'})
+        //Group.hasMany(models.SubGroup,{foreignKey : 'groupId'})
         
         Group.belongsTo(models.Field,{foreignKey : {            allowNull: false          }})
   

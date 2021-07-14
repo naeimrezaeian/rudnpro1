@@ -11,10 +11,7 @@ module.exports = function(sequelize,Sequelize) {
             type: Sequelize.STRING,
             allowNull: false
         },
-        // groupId:{
-        //     type: Sequelize.INTEGER,
-        //     allowNull: false
-        // },        
+           
         status:{
             type: Sequelize.INTEGER,
             allowNull: false
@@ -24,7 +21,7 @@ module.exports = function(sequelize,Sequelize) {
     
     SubGroup.associate = (models) => { 
         SubGroup.hasMany(models.SubGroupStudent,{foreignKey : 'subgroupId'})        
-        SubGroup.belongsTo(models.Group,{foreignKey : {          allowNull: false        }})
+        SubGroup.belongsTo(models.GroupRelation,{foreignKey : {          allowNull: false        }})
         
     };
 

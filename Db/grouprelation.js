@@ -14,7 +14,7 @@ module.exports = function(sequelize,Sequelize) {
             timestamps:true
     });
     GroupRelation.associate = (models) => {  
-        
+        GroupRelation.hasMany(models.SubGroup,{foreignKey : 'grouprelationId'})
         GroupRelation.hasMany(models.GroupStudent,{foreignKey : 'groupStudendId'})
         GroupRelation.belongsTo(models.Group,{foreignKey : {allowNull: false}})
         GroupRelation.belongsTo(models.Subject,{foreignKey : {allowNull: false}})

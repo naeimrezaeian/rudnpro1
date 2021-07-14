@@ -4,8 +4,87 @@ const Database=require('../Db');
 const { authRole,authChek }=require('../Middleware/Auth');
 const { subgroupstudentSchema, validate } = require('../Middleware/validator.js');
 const {FindDuplicate }= require('../Middleware/Duplicate')
+const { Op } = require("sequelize");
 const router = express.Router()
 //SubGroupId,StudentId,Status
+
+async function GetSubgroupUserList(subgroupId){
+   return  UserList = await Database.SubGroupStudent.findAll({
+        attributes:['userId'],
+        where:{subgroupId:{[Op.eq]:subgroupId}},
+        raw:true
+       })
+
+}
+async function GetListSubgroup(RelationId){
+    return await Database.SubGroup.findAll({
+        attributes:['id','title','grouprelationId'
+        ,[Database.Sequelize.fn("COUNT", Database.Sequelize.col("subgroupstudents.subgroupId")), "groupCount"]
+        ,[Database.Sequelize.col('grouprelation.groupId'), 'groupId']
+    ],
+        where:{grouprelationId:{[Op.eq]:RelationId}},
+        include:[
+            {model:Database.SubGroupStudent,attributes:[]},
+            {model:Database.GroupRelation,attributes:[]}
+        ],
+        group: ['subgroupstudents.subgroupId'],
+        raw:true
+       })
+}
+async function GetUserSubgroup(SubGroupId){
+    return await Database.SubGroupStudent.findAll({
+        attributes:['id','userId',
+        [Database.Sequelize.col('user.name'), 'usrerName'],
+        [Database.Sequelize.col('user.photo'), 'photo']
+    ],
+        where:{subgroupId:{[Op.in]:SubGroupId}},
+        include:[
+            {model:Database.User,attributes:[]}
+        ],       
+        raw:true
+       })   
+}
+
+async function GetGroupStudents(GroupId,UserList){
+    return await Database.GroupStudent.findAll({
+        attributes:['id','userId',
+        [Database.Sequelize.col('user.name'), 'usrerName'],
+        [Database.Sequelize.col('user.photo'), 'photo']
+    ],
+        where:{
+            [Op.and]:[
+           { groupId:{[Op.eq]:GroupId}},
+           { userId:{[Op.notIn]:UserList}}
+            ]
+        },
+        include:[
+            {model:Database.User,attributes:[]}
+        ],       
+        raw:true
+       })     
+}
+router.get('/Filter/:relationId/:offset/:limit',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
+    const RelationId = req.params.relationId
+    const SubgroupList = await GetListSubgroup(RelationId)
+    const GroupId=SubgroupList[0].groupId || 0
+    
+    const SubGroupId = SubgroupList.map(subgroup =>subgroup.id )
+    //console.log(SubGroupId)
+    const SubGroupUserList= await GetUserSubgroup(SubGroupId)
+    //console.log(SubGroupUserList)
+    const UserList=SubGroupUserList.map(user=>user.userId)
+    //console.log(UserList)
+    const GroupList= await GetGroupStudents(GroupId,UserList)
+    console.log(GroupList)
+
+    //const UserList= await GetSubgroupUserList(subgroupId)
+   // const SubgroupList= await GetListSubgroup(RelationId)
+   // console.log(SubgroupList)
+   //const UserList=await GetUserSubgroup([1,2])
+   //console.log(UserList)
+  
+ 
+})
 
 
 router.get('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
