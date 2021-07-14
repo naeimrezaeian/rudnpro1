@@ -6,26 +6,16 @@ module.exports = function(sequelize,Sequelize) {
             autoIncrement :  true,
             primaryKey : true,
             allowNull: false
-        },
-        // groupId:{
-        //     type: Sequelize.INTEGER,
-        //     allowNull: false
-        // },
-        // teacherId:{
-        //     type: Sequelize.INTEGER,
-        //     allowNull: false
-        // },
-        // subjectId:{
-        //     type: Sequelize.INTEGER,
-        //     allowNull: false
-        // },        
+        },              
         status:{
             type: Sequelize.INTEGER,
             allowNull: false
         }},{
             timestamps:true
     });
-    GroupRelation.associate = (models) => {     
+    GroupRelation.associate = (models) => {  
+        
+        GroupRelation.hasMany(models.GroupStudent,{foreignKey : 'groupStudendId'})
         GroupRelation.belongsTo(models.Group,{foreignKey : {allowNull: false}})
         GroupRelation.belongsTo(models.Subject,{foreignKey : {allowNull: false}})
         GroupRelation.belongsTo(models.User,{foreignKey : {allowNull: false}})
