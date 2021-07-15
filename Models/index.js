@@ -25,6 +25,8 @@ const SystemAlert = require('./systemalert.js');
 const SystemAlertEvent = require('./systemalertevent.js');
 const Message = require('./message.js');
 const Room = require('./room.js');
+const Permission =require('./permission.js');
+const PermissionUser =require('./permissionuser.js');
 module.exports={    
     Chat:Chat,
     ChatRoom:ChatRoom,
@@ -53,5 +55,7 @@ module.exports={
     VariantQuestion:VariantQuestion,
     Message:Message,
     Room:Room,
+    Permission,
+    PermissionUser
     
   }

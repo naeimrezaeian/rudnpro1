@@ -42,6 +42,8 @@ const sequelize = new Sequelize('rudn',"root",'n366811',{
      MessageRecipient:require('./messagerecipient')(sequelize,Sequelize),
      
      Country:require('./country')(sequelize,Sequelize),
+     Permission:require('./permission')(sequelize,Sequelize),
+     PermissionUser:require('./permissionuser')(sequelize,Sequelize),
   };
   
   Object.keys(models).forEach((modelName) => {

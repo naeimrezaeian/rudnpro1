@@ -62,6 +62,9 @@ app.use('/api/SystemAlert', Routers.SystemAlert)
 app.use('/api/FileUpload', Routers.FileUpload)
 app.use('/api/Country', Routers.County)
 app.use('/api/Helper', Routers.Helper)
+app.use('/api/Helper', Routers.Helper)
+app.use('/api/Permission', Routers.Permission)
+app.use('/api/PermissionUser', Routers.PermissionUser)
 app.get('/',cors(),(req,res)=>{  
     res.sendStatus(200)  
     

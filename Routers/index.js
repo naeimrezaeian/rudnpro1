@@ -26,6 +26,8 @@ const SystemAlert = require('./systemalert')
 const FileUpload =  require('./fileupload')
 const County = require ('./country')
 const Helper = require ('./helper')
+const Permission = require ('./permission')
+const PermissionUser = require ('./permissionuser')
   module.exports={
    User:User,    
     Profile:Profile,
@@ -55,6 +57,8 @@ const Helper = require ('./helper')
     FileUpload:FileUpload,
     County:County,
     Helper:Helper,
+    PermissionUser,
+    Permission,
    
 
   }

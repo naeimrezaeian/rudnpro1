@@ -353,6 +353,32 @@ room.push(new Model.Room("Room 7"))
 room.push(new Model.Room("Room 8"))
 room.push(new Model.Room("Room 9"))
 
+//permission
+var permission = []
+permission.push(new Model.Permission("Permission 1","Per1"))
+permission.push(new Model.Permission("Permission 2","Per2"))
+permission.push(new Model.Permission("Permission 3","Per3"))
+permission.push(new Model.Permission("Permission 4","Per4"))
+permission.push(new Model.Permission("Permission 5","Per5"))
+permission.push(new Model.Permission("Permission 6","Per6"))
+permission.push(new Model.Permission("Permission 7","Per7"))
+permission.push(new Model.Permission("Permission 8","Per8"))
+permission.push(new Model.Permission("Permission 9","Per9"))
+permission.push(new Model.Permission("Permission 10","Per10"))
+
+//permissionuser
+var permissionuser = []
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","1",1))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","2",1))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","3",0))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","4",1))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","5",0))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","6",1))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","7",1))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","8",0))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","9",1))
+permissionuser.push(new Model.PermissionUser("962c20a8-682c-4c46-b1a5-4e26556f223f","10",1))
+
 async function run(){
    
     await Database.sequelize.drop() 
@@ -436,6 +462,12 @@ async function run(){
 
     await Database.Room.bulkCreate(room)
     console.log("room table created!")
+
+    await Database.Permission.bulkCreate(permission)
+    console.log("Permission table created!")
+
+    await Database.PermissionUser.bulkCreate(permissionuser)
+    console.log("PermissionUser table created!")
 
     var sql_string = fs.readFileSync('./Db/countries.sql', 'utf8');
     await Database.sequelize.query(sql_string);

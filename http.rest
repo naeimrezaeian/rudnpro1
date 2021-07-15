@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkN6RzF2bURKa0MiLCJpYXQiOjE2MjYzNDQxMTMsImV4cCI6MTYyNjM1MTMxM30.XC6-dZ6ohFsnjBF4pD_3CPuqL5Fk5KfhWC2dqpQP_dA
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjIxMEZKbGtZTHQiLCJpYXQiOjE2MjYzNzkwMDksImV4cCI6MTYyNjM4NjIwOX0.Lu-_tfPZcXvlZbd1wFFJUACLRxbdNnIP1almOGXlYKs
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -224,4 +224,93 @@ Authorization: Bearer {{token}}
 
 {
     "items":[2]
+}
+
+
+
+###
+GET {{hostname2}}/Permission
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+POST {{hostname2}}/Permission
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title":"test11",
+    "tag":"tag11"
+}
+
+
+
+###
+PUT {{hostname2}}/Permission/11
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title":"test11",
+    "tag":"tag 11"
+}
+
+
+###
+DELETE {{hostname2}}/Permission
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "items":[11]
+}
+
+
+
+###
+GET {{hostname2}}/PermissionUser/962c20a8-682c-4c46-b1a5-4e26556f223f
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{hostname2}}/PermissionUser
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    
+    "dataArray":[
+        {"userId":"c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c","permissionId":"1","access":"0"}
+        , {"userId":"c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c","permissionId":"2","access":"1"}
+        , {"userId":"c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c","permissionId":"3","access":"1"}
+        , {"userId":"c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c","permissionId":"4","access":"1"}
+      
+    ]
+}
+
+
+###
+DELETE {{hostname2}}/PermissionUser
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "items":["c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c"]
+}
+
+
+###
+PUT {{hostname2}}/PermissionUser/c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+"dataArray":[
+         {"permissionId":"1","access":"0"}
+        , {"permissionId":"2","access":"0"}
+        , {"permissionId":"3","access":"0"}
+        , {"permissionId":"4","access":"0"}
+      
+    ]
 }

@@ -218,7 +218,18 @@ const fileuploadSchema = [
   //body('file').isLength({ min: 5 }),
   
 ]
+//permissionSchema
+const permissionSchema = [
+  body('title').isLength({ min: 1 }),
+  body('tag').isLength({ min: 1 }),
+]
+//permissionuserSchema
+const permissionuserSchema=[
+  body('userId').isLength({ min: 30 }),
+  body('permissionId').isLength({ min: 1 }), 
+  body('access').isInt(),
 
+]
  const validate = (schemas)  => {
     return async (req, res, next) => {
       await Promise.all(schemas.map((schema) => schema.run(req)));
@@ -259,5 +270,7 @@ module.exports = {
   fileuploadSchema,
   systemalertSchema,
   subjectUserSchema,
+  permissionSchema,
+  permissionuserSchema,
   validate,
 }
