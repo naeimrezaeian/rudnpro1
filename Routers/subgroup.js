@@ -58,49 +58,49 @@ router.get('/Filter/:groupid/:offset/:limit',authChek,authRole([Config.ROLE.ADMI
 
 
 
-    router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, res)  {
-        items=req.body.items
-        if (items !=null){                     
-            itemsDelete = await Database.SubGroup.destroy({ 
-                where: { id: [items] }
-            }).then( (response) =>{
-                if (response > 0 ){
-                    
-                    return res.status(200).json({message:Config.ERROR_200})
-                }
-                    
-                    return res.status(404).json({message:Config.ERROR_404})
+router.delete('/',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.TEACHER]), async function(req, res)  {
+    items=req.body.items      
+    if (items !=null){                     
+        itemsDelete = await Database.SubGroup.destroy({ 
+            where: { id: items }
+        }).then( (response) =>{
+            if (response > 0 ){
+                
+                return res.status(200).json({message:Config.ERROR_200})
+            }
+                
+                return res.status(404).json({message:Config.ERROR_404})
 
-            }).catch(error => {
-                return res.status(500).json({message:Config.ERROR_500,errors:error})
+        }).catch(error => {
+            return res.status(500).json({message:Config.ERROR_500,errors:error})
 
-            })
-        
-        }else{            
-            return res.status(404).json({message:Config.ERROR_404})
-        }
-    })
+        })
+    
+    }else{            
+        return res.status(404).json({message:Config.ERROR_404})
+    }
+})
 
    
     
-    router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(subgroupSchema),
-    FindDuplicate(Database.SubGroup,["title","groupId"])
+router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(subgroupSchema),
+FindDuplicate(Database.SubGroup,["title","groupId"])
 ,async function (req,res) {  
-  
-    Database.SubGroup.create({                  
-        Title: req.body.title,    
-        GroupId: req.body.groupId, 
-        Status: req.body.status,
-       
+
+Database.SubGroup.create({                  
+    Title: req.body.title,    
+    GroupId: req.body.groupId, 
+    Status: req.body.status,
+    
 }).then(function(response){
-    if (response){        
-        return res.status(200).json({message:Config.ERROR_200,Id:response['dataValues']['Id']})
-    }else{
-       
-        return res.status(400).json({message:Config.ERROR_400})
-    }
+if (response){        
+    return res.status(200).json({message:Config.ERROR_200,Id:response['dataValues']['Id']})
+}else{
+    
+    return res.status(400).json({message:Config.ERROR_400})
+}
 }).catch(error => {
-         return res.status(500).json({message:Config.ERROR_500,errors:error})
+        return res.status(500).json({message:Config.ERROR_500,errors:error})
 });
 
 })

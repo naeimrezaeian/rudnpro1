@@ -1,19 +1,6 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6Ik1HaXZrZzh3UlAiLCJpYXQiOjE2MjYzNDE2MzEsImV4cCI6MTYyNjM0ODgzMX0.wZF0h2d1LeUYwmLwLrsFZ6stO7B_kxXg9Dhhf1cAgtE
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IlRZc3lrQXo0bXciLCJpYXQiOjE2MjYzNDM0ODYsImV4cCI6MTYyNjM1MDY4Nn0.LNtHLCTq8DVC2r4oaP2Oioamb3aHjdqNmWfIoUBzoUw
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
-###
-GET http://127.0.0.1:3000
-
-###
-POST http://188.126.44.111/api/user/login
-Content-Type: application/json
-
-{
-    "email":"user3@rudn.ru",
-    "password":"1234"
-}
-
-
 
 ###
 POST {{hostname2}}/user/login
@@ -202,7 +189,7 @@ Authorization: Bearer {{token}}
 
 
 ###
-#/Filter/:groupid/:userid/:offset/:limit
+#/Filter/:relationId
 GET {{hostname2}}/SubGroupStudent/Filter/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -219,4 +206,13 @@ Authorization: Bearer {{token}}
 
 {
     "dataArray":[{"userId":"c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c","subgroupId":"3"},{"userId":"b7bf08b7-87a5-4dfd-b240-1ad9710f3dfd","subgroupId":"2"}]
+}
+
+###
+DELETE {{hostname2}}/SubGroup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "items":[2]
 }

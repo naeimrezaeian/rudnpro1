@@ -20,7 +20,7 @@ module.exports = function(sequelize,Sequelize) {
     });
     
     SubGroup.associate = (models) => { 
-        SubGroup.hasMany(models.SubGroupStudent,{foreignKey : 'subgroupId'})        
+        SubGroup.hasMany(models.SubGroupStudent,{foreignKey : 'subgroupId',onDelete: 'cascade'})        
         SubGroup.belongsTo(models.GroupRelation,{foreignKey : {          allowNull: false        }})
         
     };
