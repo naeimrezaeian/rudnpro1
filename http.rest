@@ -1,9 +1,9 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IlRZc3lrQXo0bXciLCJpYXQiOjE2MjYzNDM0ODYsImV4cCI6MTYyNjM1MDY4Nn0.LNtHLCTq8DVC2r4oaP2Oioamb3aHjdqNmWfIoUBzoUw
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkN6RzF2bURKa0MiLCJpYXQiOjE2MjYzNDQxMTMsImV4cCI6MTYyNjM1MTMxM30.XC6-dZ6ohFsnjBF4pD_3CPuqL5Fk5KfhWC2dqpQP_dA
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
 ###
-POST {{hostname2}}/user/login
+POST {{hostname}}/user/login
 Content-Type: application/json
 
 {
@@ -190,17 +190,17 @@ Authorization: Bearer {{token}}
 
 ###
 #/Filter/:relationId
-GET {{hostname2}}/SubGroupStudent/Filter/1
+GET {{hostname}}/SubGroupStudent/Filter/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ###
-GET {{hostname2}}/SubGroupStudent/Filter/List/1
+GET {{hostname}}/SubGroupStudent/Filter/List/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ###
-POST {{hostname2}}/SubGroupStudent
+POST {{hostname}}/SubGroupStudent
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -210,6 +210,15 @@ Authorization: Bearer {{token}}
 
 ###
 DELETE {{hostname2}}/SubGroup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "items":[2]
+}
+
+###
+DELETE {{hostname2}}/SubGroupStudent
 Content-Type: application/json
 Authorization: Bearer {{token}}
 

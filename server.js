@@ -123,8 +123,6 @@ io.use(function(socket, next){
 
 bindListeners(io)
 
-
-
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 app.set('socketIo', io);
 app.set('client', client);
