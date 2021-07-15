@@ -96,7 +96,8 @@ module.exports = function(sequelize,Sequelize) {
         User.hasMany(models.GroupStudent,{foreignKey : 'userId'})
         User.hasMany(models.SubGroupStudent,{foreignKey : 'userId'})
         User.hasMany(models.Question,{foreignKey : 'userId'})
-
+        User.hasMany(models.PermissionUser,{foreignKey : 'userId'})
+        
         User.hasMany(models.MessageRecipient,{foreignKey : 'creatorId'})
         User.hasMany(models.MessageRecipient,{foreignKey : 'recipientId'})
 
