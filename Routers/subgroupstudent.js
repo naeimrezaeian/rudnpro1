@@ -3,35 +3,43 @@ const express = require('express')
 const Database=require('../Db');
 const { authRole,authChek }=require('../Middleware/Auth');
 const { subgroupstudentSchema, validate } = require('../Middleware/validator.js');
-const {FindDuplicate }= require('../Middleware/Duplicate')
+const {FindDuplicateArray}= require('../Middleware/Duplicate')
 const { Op } = require("sequelize");
 const router = express.Router()
 //SubGroupId,StudentId,Status
+async function GetRelation(RelationId){
+    return await Database.GroupRelation.findAll({
+        attributes:['id', 'groupId'
+        ,[Database.Sequelize.col('group.title'), 'groupTitle']
+    ],
+        where:{Id:{[Op.eq]:RelationId}},
+        include:[           
+            {model:Database.Group,attributes:[]}
+        ],
+        raw:true,
 
-async function GetSubgroupUserList(subgroupId){
-   return  UserList = await Database.SubGroupStudent.findAll({
-        attributes:['userId'],
-        where:{subgroupId:{[Op.eq]:subgroupId}},
-        raw:true
-       })
-
+    })
 }
+
 async function GetListSubgroup(RelationId){
     return await Database.SubGroup.findAll({
         attributes:['id','title','grouprelationId'
         ,[Database.Sequelize.fn("COUNT", Database.Sequelize.col("subgroupstudents.subgroupId")), "groupCount"]
         ,[Database.Sequelize.col('grouprelation.groupId'), 'groupId']
+        ,[Database.Sequelize.col('grouprelation->group.title'), 'groupTitle']
     ],
         where:{grouprelationId:{[Op.eq]:RelationId}},
         include:[
             {model:Database.SubGroupStudent,attributes:[]},
-            {model:Database.GroupRelation,attributes:[]}
+            {model:Database.GroupRelation,attributes:[],include:{model:Database.Group,attributes:[]}}
         ],
         group: ['subgroupstudents.subgroupId'],
-        raw:true
+        raw:true,
+        order: [['id', 'ASC']  ],
        })
 }
 async function GetUserSubgroup(SubGroupId){
+   
     return await Database.SubGroupStudent.findAll({
         attributes:['id','userId',
         [Database.Sequelize.col('user.name'), 'usrerName'],
@@ -41,7 +49,7 @@ async function GetUserSubgroup(SubGroupId){
         include:[
             {model:Database.User,attributes:[]}
         ],       
-        raw:true
+        raw:true,      
        })   
 }
 
@@ -63,170 +71,98 @@ async function GetGroupStudents(GroupId,UserList){
         raw:true
        })     
 }
-router.get('/Filter/:relationId/:offset/:limit',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
-    const RelationId = req.params.relationId
-    const SubgroupList = await GetListSubgroup(RelationId)
-    const GroupId=SubgroupList[0].groupId || 0
-    
-    const SubGroupId = SubgroupList.map(subgroup =>subgroup.id )
-    //console.log(SubGroupId)
-    const SubGroupUserList= await GetUserSubgroup(SubGroupId)
-    //console.log(SubGroupUserList)
-    const UserList=SubGroupUserList.map(user=>user.userId)
-    //console.log(UserList)
-    const GroupList= await GetGroupStudents(GroupId,UserList)
-    console.log(GroupList)
 
-    //const UserList= await GetSubgroupUserList(subgroupId)
-   // const SubgroupList= await GetListSubgroup(RelationId)
-   // console.log(SubgroupList)
-   //const UserList=await GetUserSubgroup([1,2])
-   //console.log(UserList)
-  
+
+
+router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
+    const RelationId = req.params.relationId
+    const CheckRelation = await GetRelation(RelationId)
+    
+
+    if (CheckRelation.length!=0){   
+    const GroupId = CheckRelation[0].groupId 
+    const GroupTitle =  CheckRelation[0].groupTitle 
+    
+    const SubgroupList = await GetListSubgroup(RelationId)   
+    FirstSubgroupStudentList=null
+    FirstSubgroupId=null
+    FirstSubgroupTitle=null
+    GroupList=null
+    if (SubgroupList.length!=0){
+     
+    const SubGroupId = SubgroupList.map(subgroup =>subgroup.id )    
+    FirstSubgroupId=SubGroupId[0]   
+    FirstSubgroupTitle=SubgroupList[0].title
+    FirstSubgroupStudentList =  await GetUserSubgroup([FirstSubgroupId]) 
+
+    const SubGroupUserList= await GetUserSubgroup(SubGroupId)   
+    const UserList=SubGroupUserList.map(user=>user.userId)   
+    GroupList= await GetGroupStudents(GroupId,UserList)
+    
+    }else{
+         GroupList= await GetGroupStudents(GroupId,[]) 
+      }
+      metadata={gropupId:GroupId,groupName:GroupTitle,FirstSubgroupId:FirstSubgroupId,FirstSubGroupName:FirstSubgroupTitle}
+    
+    return res.status(200).json({  data :{SubgroupList:SubgroupList,FirstSubgroupList:FirstSubgroupStudentList,GroupList:GroupList,metadata:metadata} } ) 
+    }else{
+        return res.status(404).json({message:Config.ERROR_404})
+    }
+   
+   result={}
+   
+   console.log(result)
+
  
 })
 
-
-router.get('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
-    const Id=req.params.id
-        await Database.SubGroupStudent.findOne({
-       where: {
-           Id: Id,
-           status: 1
-       }
-   }).then( result =>{    
-     if (result){        
-         return res.status(200).json({  data : result })
-     }else{
-         return res.status(404).json({message:Config.ERROR_404})
-     }   
-   }).catch(error => {
-     return res.status(500).json({message:Config.ERROR_500,errors:error})      
-   })
-   
-     
-})
-
-router.get('/Filter/:subgroupid/:userid/:offset/:limit',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
-   const SubGroupId = req.params.subgroupid
-   const UserId = req.params.userid
-
-   const offset = parseInt(req.params.offset) || 0
-   const limit = parseInt(req.params.limit) || 0    
-
-   let where = {status: 1};
-   let limits = {};    
-   
-   if (SubGroupId !=0){  where.subgroupId=SubGroupId } 
-   if (UserId !=0){  where.userId=UserId } 
-   
-   if (limit != 0 ){      limits={ offset: offset,limit: limit }      }
-
-       await Database.SubGroupStudent.findAndCountAll({
-      where: where,
-      ...limits,
-      attributes:['id','userId','subgroupId',[Database.Sequelize.col('subgroup.title'), 'subgroupTitle'],
-       [Database.Sequelize.col('user.name'), 'usrerName'],[Database.Sequelize.col('user.photo'), 'photo'],
-      
-    ],
-      include:[
-          { model:Database.SubGroup,attributes: []},
-          { model:Database.User,attributes: []},
-      ],
-  }).then( result =>{    
-    if (result){        
-        metadata = {offset:offset,limit:limit,total:result.count}
-    return res.status(200).json({  data :{items:result.rows,metadata:metadata} }) 
-    }else{
-        return res.status(404).json({message:Config.ERROR_404})
-    }   
-  }).catch(error => {
-      console.log(error)
-    return res.status(500).json({message:Config.ERROR_500,errors:error})      
-  })
-  
-    
-   })
-
-router.get('/Filter/:groupid',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
-const GroupId = req.params.groupid
-
-
-const offset = parseInt(req.params.offset) || 0
-const limit = parseInt(req.params.limit) || 0    
-
-let where = {status: 1};
-let limits = {};    
-
-
-if (GroupId !=0){  where['$subgroup.groupId$']=GroupId }  
-
-if (limit != 0 ){      limits={ offset: offset,limit: limit }      }
-
-    await Database.SubGroupStudent.findAndCountAll({
-    where: where,
-    ...limits,
-    raw:true,
-    group: ['subgroupId'],
-    attributes:['id','subgroupId',[Database.Sequelize.col('subgroup.title'), 'subgroupTitle'],
-    [Database.Sequelize.fn("COUNT", Database.Sequelize.col("subgroupId")), "groupCount"]
-],
-    include:[
-        { model:Database.SubGroup,attributes: []},
-        
-    ],
-}).then( result =>{    
-    if (result){        
-        metadata = {offset:offset,limit:limit,total:result.count.length}
-    return res.status(200).json({  data :{items:result.rows,metadata:metadata} }) 
-    }else{
-        return res.status(404).json({message:Config.ERROR_404})
-    }   
-}).catch(error => {
-    console.log(error)
-    return res.status(500).json({message:Config.ERROR_500,errors:error})      
-})
-
-    
-})
-
-    router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, res)  {
-        items=req.body.items
-        if (items !=null){                     
-            itemsDelete = await Database.SubGroupStudent.destroy({ 
-                where: { id: items }
-            }).then( (response) =>{
-                if (response > 0 ){
-                    
-                    return res.status(200).json({message:Config.ERROR_200})
-                }
-                    
-                    return res.status(404).json({message:Config.ERROR_404})
-
-            }).catch(error => {
-                return res.status(500).json({message:Config.ERROR_500,errors:error})
-
-            })
-        
-        }else{            
-            return res.status(404).json({message:Config.ERROR_404})
+router.get('/Filter/List/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  { 
+    const Id = req.params.id || 0  
+    await  GetUserSubgroup([Id]).then( (response) =>{        
+        if (response.length > 0 ){
+            
+            return res.status(200).json({  data :{items:response} }) 
         }
+            
+            return res.status(404).json({message:Config.ERROR_404})
+
+    }).catch(error => {        
+        return res.status(500).json({message:Config.ERROR_500,errors:error})
+
     })
 
-   
+})
+
+
+router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, res)  {
+    items=req.body.items
+    if (items !=null){                     
+        itemsDelete = await Database.SubGroupStudent.destroy({ 
+            where: { id: items }
+        }).then( (response) =>{
+            if (response > 0 ){
+                
+                return res.status(200).json({message:Config.ERROR_200})
+            }
+                
+                return res.status(404).json({message:Config.ERROR_404})
+
+        }).catch(error => {
+            return res.status(500).json({message:Config.ERROR_500,errors:error})
+
+        })
     
-    router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(subgroupstudentSchema),
-    FindDuplicate(Database.SubGroupStudent,["subGroupId","studentId"])
+    }else{            
+        return res.status(404).json({message:Config.ERROR_404})
+    }
+})
+
+router.post('/',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.TEACHER]),FindDuplicateArray(Database.SubGroupStudent,["subgroupId","userId"])
 ,async function (req,res) {  
-   //SubGroupId,StudentId,Status
-    Database.SubGroupStudent.create({                  
-        groupId: req.body.subGroupId,    
-        userId: req.body.studentId,
-        status : req.body.status
-       
-}).then(function(response){
+   
+    Database.SubGroupStudent.bulkCreate(req.dataArray).then(function(response){
     if (response){        
-        return res.status(200).json({message:Config.ERROR_200,Id:response['dataValues']['Id']})
+        return res.status(200).json({message:Config.ERROR_200})
     }else{
        
         return res.status(400).json({message:Config.ERROR_400})
@@ -234,8 +170,8 @@ if (limit != 0 ){      limits={ offset: offset,limit: limit }      }
 }).catch(error => {
          return res.status(500).json({message:Config.ERROR_500,errors:error})
 });
-
 })
+
 
 
 

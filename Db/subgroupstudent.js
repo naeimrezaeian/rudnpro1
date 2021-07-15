@@ -10,6 +10,7 @@ module.exports = function(sequelize,Sequelize) {
        
         status:{
             type: Sequelize.INTEGER,
+            defaultValue:1,
             allowNull: false
         }},{
             timestamps:true

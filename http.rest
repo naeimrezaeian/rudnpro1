@@ -1,6 +1,6 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InVKb3plNEVZMkEiLCJpYXQiOjE2MjYyNzkwOTEsImV4cCI6MTYyNjI4NjI5MX0.0xBAh9FRplyOFdQxCW4519t7xRDnoNkv_oV9MbOLPm0
-@hostname=http://188.126.44.111/api
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6Ik1HaXZrZzh3UlAiLCJpYXQiOjE2MjYzNDE2MzEsImV4cCI6MTYyNjM0ODgzMX0.wZF0h2d1LeUYwmLwLrsFZ6stO7B_kxXg9Dhhf1cAgtE
 @hostname2=http://127.0.0.1:3000/api
+@hostname=http://188.126.44.111/api
 ###
 GET http://127.0.0.1:3000
 
@@ -16,7 +16,7 @@ Content-Type: application/json
 
 
 ###
-POST {{hostname}}/user/login
+POST {{hostname2}}/user/login
 Content-Type: application/json
 
 {
@@ -203,6 +203,20 @@ Authorization: Bearer {{token}}
 
 ###
 #/Filter/:groupid/:userid/:offset/:limit
-GET {{hostname2}}/SubGroupStudent/Filter/0/0/0/0
+GET {{hostname2}}/SubGroupStudent/Filter/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
+
+###
+GET {{hostname2}}/SubGroupStudent/Filter/List/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{hostname2}}/SubGroupStudent
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "dataArray":[{"userId":"c0a7934d-bfbc-40ff-bb2f-4fdec014ad8c","subgroupId":"3"},{"userId":"b7bf08b7-87a5-4dfd-b240-1ad9710f3dfd","subgroupId":"2"}]
+}
