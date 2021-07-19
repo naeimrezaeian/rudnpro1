@@ -6,6 +6,7 @@ const { canViewProfile, scopedData,canEditProfile } = require('../Permissions/pr
 const { validationResult } = require('express-validator');
 const { userStatusSchema,userSchema, validate } = require('../Middleware/validator.js');
 const { authUser,authRole,authChek }=require('../Middleware/Auth')
+const { Op } = require("sequelize");
 var redis = require('redis');
 var JWTR =  require('jwt-redis').default;
 var redisClient = redis.createClient({
@@ -259,7 +260,9 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(userSchema)
 
 
 router.put('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT]),validate(userSchema),async function  (req, res) {    
+  
   const dataId = req.params.id
+  console.log(dataId)
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {

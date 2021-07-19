@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjIxMEZKbGtZTHQiLCJpYXQiOjE2MjYzNzkwMDksImV4cCI6MTYyNjM4NjIwOX0.Lu-_tfPZcXvlZbd1wFFJUACLRxbdNnIP1almOGXlYKs
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImtoV3pqbEZBRG4iLCJpYXQiOjE2MjY2ODM3NzIsImV4cCI6MTYyNjY5MDk3Mn0.EQoHGMU5PCHFlVf3yxNYvZ1zCIG1jJls5OUyE0yzsfI
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -313,4 +313,36 @@ Authorization: Bearer {{token}}
         , {"permissionId":"4","access":"0"}
       
     ]
+}
+
+
+####
+GET {{hostname2}}/User/6ebd5269-1f59-4cfe-bdef-53c90e8cf1d7
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+####
+PUT {{hostname2}}/User/6ebd5269-1f59-4cfe-bdef-53c90e8cf1d7
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+"id":"6ebd5269-1f59-4cfe-bdef-53c90e8cf1d7",
+"name":"Ширяев Юстин Игнатьевич",
+"birthday":"1981-12-12",
+"sex":true,
+"email":"user43@rudn.ru",
+"phone":"+79212679113",
+"address":"ул. Хрущёва, дом 67",
+"country":"Россия",
+"city":"Москва",
+"fieldId":1,
+"typeStudy":0,
+"yearStudy":"2019-2020",
+"additional":"desc1",
+"photo":"file",
+"access":"teacher",
+"status":0,
+"password":"$2a$10$99Zklk7LjrNiQnqVk6P3tOcz9pSuX7JslGfAgsDP3n3VkuClpqxaq"
 }
