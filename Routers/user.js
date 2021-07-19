@@ -279,7 +279,7 @@ router.put('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT]),val
       city : req.body.city,     
       fieldId : req.body.fieldId,
       typeStudy : req.body.typeStudy,
-      formStudy : req.body.formStudy,
+      //formStudy : req.body.formStudy,
       yearStudy : req.body.yearStudy,
       additional : req.body.additional,
       photo : req.body.photo,
