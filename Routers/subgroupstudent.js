@@ -102,18 +102,13 @@ router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROL
     }else{
          GroupList= await GetGroupStudents(GroupId,[]) 
       }
-      metadata={gropupId:GroupId,groupName:GroupTitle,FirstSubgroupId:FirstSubgroupId,FirstSubGroupName:FirstSubgroupTitle}
-    
-    return res.status(200).json({  data :{SubgroupList:SubgroupList,FirstSubgroupList:FirstSubgroupStudentList,GroupList:GroupList,metadata:metadata} } ) 
+      infodata={gropupId:GroupId,groupName:GroupTitle,FirstSubgroupId:FirstSubgroupId,FirstSubGroupName:FirstSubgroupTitle}
+      metadata={}
+    return res.status(200).json({  data :{SubgroupList:SubgroupList,FirstSubgroupList:FirstSubgroupStudentList,GroupList:GroupList,infodata:infodata,metadata:metadata} } ) 
     }else{
         return res.status(404).json({message:Config.ERROR_404})
-    }
-   
-   result={}
-   
-   console.log(result)
-
- 
+    }   
+    
 })
 
 router.get('/Filter/List/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  { 
