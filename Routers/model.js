@@ -118,7 +118,7 @@ router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, re
         Description : req.body.description,        
         SubjectId : req.body.subjectId,
         UrlModel  :req.body.urlModel, 
-        Parameters  :req.body.parameters, 
+        //Parameters  :req.body.parameters, 
         GeneralModel  :req.body.generalModel, 
         Status : req.body.status
        
@@ -148,7 +148,7 @@ async function  (req, res) {
             Description : req.body.description,               
             SubjectId : req.body.subjectId,
             UrlModel  :req.body.urlModel, 
-            Parameters  :req.body.parameters, 
+           // Parameters  :req.body.parameters, 
             GeneralModel  :req.body.generalModel, 
             Status : req.body.status
         },

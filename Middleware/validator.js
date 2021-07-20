@@ -63,7 +63,7 @@ body('password').isLength({ min: 3 })
   body('description').isLength({ min: 3 }),  
   body('subjectId').isInt(),
   body('urlModel').isLength({ min: 3 }),
-  body('parameters').isLength({ min: 3 }),
+  //body('parameters').isLength({ min: 3 }),
   body('generalModel').isBoolean(),
   body('status').isInt()
  ]

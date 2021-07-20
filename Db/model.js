@@ -33,10 +33,10 @@ module.exports = function(sequelize,Sequelize) {
             type: Sequelize.STRING,
             allowNull: false
         },
-        parameters:{
-            type: Sequelize.STRING,
-            allowNull: false
-        },
+        // parameters:{
+        //     type: Sequelize.STRING,
+        //     allowNull: false
+        // },
         description:{
             type: Sequelize.STRING,
             allowNull: false
