@@ -35,7 +35,7 @@ include:{ model:Database.Faculty,attributes: ['title','id']}},}
             departmentTitle:data.field.department.title,
             facultyId:data.field.department.faculty.id,
             facultyTitle:data.field.department.faculty.title,
-        
+            status:data.status,
              })  
           })
          return res.status(200).json({  data : obj[0] })
@@ -110,7 +110,9 @@ router.get('/Filter/:facultyid/:departmentid/:fieldid/:typestudy/:yearstudy/:off
            departmentTitle:data['field.department.title'],
            facultyId:data['field.department.faculty.id'],
             facultyTitle:data['field.department.faculty.title'],
+            status:data.status,
             groupCount:data.groupCount
+
             })  
 
            
