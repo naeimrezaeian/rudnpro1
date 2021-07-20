@@ -7,6 +7,7 @@ const { validationResult } = require('express-validator');
 const { userStatusSchema,userSchema, validate } = require('../Middleware/validator.js');
 const { authUser,authRole,authChek }=require('../Middleware/Auth')
 const { Op } = require("sequelize");
+const bcrypt = require('bcryptjs');
 var redis = require('redis');
 var JWTR =  require('jwt-redis').default;
 var redisClient = redis.createClient({
@@ -214,25 +215,26 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(userSchema)
         if (response){                              
             return res.status(400).json({message:"Email Error"})
         }else{
-           
+          var salt = bcrypt.genSaltSync(10);
+          var passwordhash = bcrypt.hashSync(req.body.password, salt);
         Database.User.create({
-        Name : req.body.name,
-        Birthday : req.body.birthday,
-        Sex : req.body.sex,
-        Email : req.body.email,
-        Phone : req.body.phone,
-        Address : req.body.address,
-        Country : req.body.country,
-        City : req.body.city,       
-        FieldId : req.body.fieldId,
-        TypeStudy : req.body.typeStudy,
-        FormStudy : req.body.formStudy,
-        YearStudy : req.body.yearStudy,
-        Additional : req.body.additional,
-        Photo : req.body.photo,
-        Access : req.body.access,
-        Status : req.body.status,
-        Password : passwordhash
+        name : req.body.name,
+        birthday : req.body.birthday,
+        sex : req.body.sex,
+        email : req.body.email,
+        phone : req.body.phone,
+        address : req.body.address,
+        country : req.body.country,
+        city : req.body.city,       
+        fieldId : req.body.fieldId,
+        typeStudy : req.body.typeStudy,
+        formStudy : 0,
+        yearStudy : req.body.yearStudy,
+        additional : req.body.additional,
+        photo : req.body.photo,
+        access : req.body.access,
+        status : req.body.status,
+        password : passwordhash
 }).then(function(response){
     if (response){
         
@@ -243,6 +245,7 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(userSchema)
         return res.status(400).json({message:Config.ERROR_400})
     }
 }).catch(error => {
+  console.log(error)
          return res.status(500).json({message:Config.ERROR_500,errors:error['errors']})
 });
 
