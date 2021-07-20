@@ -169,10 +169,11 @@ router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, re
     status : req.body.status
        
 }).then(function(response){
-    if (response){        
-        return res.status(200).json({message:Config.ERROR_200,Id:response['dataValues']['Id']})
+    if (response){  
+        response["groupCount"]=100
+        data={id:response.id,title:response.title,yearStudy:response.yearStudy,fieldId:response.fieldId,typeStudy:response.typeStudy,description:response.description,status:response.status,groupCount:0}
+        return res.status(200).json({data:data})
     }else{
-       
         return res.status(400).json({message:Config.ERROR_400})
     }
 }).catch(error => {
