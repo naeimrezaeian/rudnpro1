@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImtoV3pqbEZBRG4iLCJpYXQiOjE2MjY2ODM3NzIsImV4cCI6MTYyNjY5MDk3Mn0.EQoHGMU5PCHFlVf3yxNYvZ1zCIG1jJls5OUyE0yzsfI
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkhEeWgyU0JXaDYiLCJpYXQiOjE2MjY3ODgzNjcsImV4cCI6MTYyNjc5NTU2N30.9hYQKg1poynO7--8ynRBg0hmcTrpxp1hsTTYESGR4y4
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -345,4 +345,35 @@ Authorization: Bearer {{token}}
 "access":"teacher",
 "status":0,
 "password":"$2a$10$99Zklk7LjrNiQnqVk6P3tOcz9pSuX7JslGfAgsDP3n3VkuClpqxaq"
+}
+
+###
+POST {{hostname2}}/User
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+"id":"",
+"name":"mazhar zarsaw",
+"birthday":"2021-07-20",
+"sex":false,
+"email":"m.zarsaw@yahoo.com",
+"phone":"09186882744",
+"address":"kermanshah",
+"country":"IR-ИСЛАМСКАЯ РЕСПУБЛИКА ИРАН (ИРАН)",
+"city":"kermanshah",
+"facultyId":2,
+"facultyTitle":"",
+"departmentId":3,
+"departmentTitle":"",
+"fieldId":3,
+"fieldTitle":"",
+"typeStudy":1,
+"yearStudy":"2019-2020",
+"additional":"desc 1",
+"photo":"2ba68a1125d9f012c5142d9556bfa8315ad9.jpg",
+"access":"student",
+"status":0,
+"password":"1234"
+
 }
