@@ -72,7 +72,8 @@ app.get('/',cors(),(req,res)=>{
 //Socket 
 const bindListeners = (io) => { 
   io.on('connection', (socket) => {   
-    console.log(`${socket.id} connected`)
+    //
+    //console.log(`${socket.id} connected`)
     socket.emit("newToken", {'socketid':socket.id,'uuid':socket.decoded.id});
 
     socket.on('disconnect', function(){     
@@ -106,7 +107,7 @@ io.use(function(socket, next){
 
     jwtr.verify( socket.handshake.query.token, Config.ACCESS_TOKEN_SECRET)
     .then((data)=>{              
-      console.log(data)    
+      //console.log(data)    
       socket.decoded = data;  
         next()
     })
