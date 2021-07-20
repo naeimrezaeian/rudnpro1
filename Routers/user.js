@@ -305,7 +305,7 @@ router.put('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT]),val
           //Update Data
 
     await Database.User.update(   UpdateData,
-      { where: {id: dataId, status: 1}}
+      { where: {id: dataId}}
       ).then(function(result) {        
        if (result==1){
            

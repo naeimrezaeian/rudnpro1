@@ -197,7 +197,7 @@ async function  (req, res) {
     description:req.body.description,   
     status : req.body.status
         },
-       { where: {Id: dataId, status: 1}}
+       { where: {Id: dataId}}
        ).then(function(result) {
            if (result==1){
         return res.status(200).json({message:Config.ERROR_200})
