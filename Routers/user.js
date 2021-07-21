@@ -237,8 +237,8 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(userSchema)
         password : passwordhash
 }).then(function(response){
     if (response){
-        
-        return res.status(200).json({message:Config.ERROR_200,Id:response['dataValues']['Id']})
+        //console.log(response['dataValues'])
+        return res.status(200).json({message:Config.ERROR_200,data:response['dataValues']})
 
     }else{
        
