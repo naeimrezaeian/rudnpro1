@@ -39,6 +39,7 @@ router.post('/Login',authUser, async function (req, res)  {
     });
   })
   
+
   router.get('/Search/:name/:offset/:limit'
   ,authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER])
   , async function(req, res)  {
@@ -116,7 +117,7 @@ router.post('/Login',authUser, async function (req, res)  {
      if (Search!=0){
      // where[Database.Sequelize.Op.like]={ name: ''+Search +'%' } 
      }
-     console.log(where)
+     //console.log(where)
        await Database.User.findAndCountAll({
         where: {  ...where     },
         ...limits,
@@ -238,7 +239,33 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(userSchema)
 }).then(function(response){
     if (response){
         //console.log(response['dataValues'])
-        return res.status(200).json({message:Config.ERROR_200,data:response['dataValues']})
+        data = {
+          "id":response['dataValues'].id,
+          "name":response['dataValues'].name,
+          "birthday":response['dataValues'].birthday,
+          "sex":response['dataValues'].sex,
+          "email":response['dataValues'].email,
+          "phone":response['dataValues'].phone,
+          "address":response['dataValues'].address,
+          "country":response['dataValues'].country,
+          "city":response['dataValues'].country,
+          "facultyId":0,
+          "facultyTitle":"",
+          "departmentId":0,
+          "departmentTitle":"",
+          "fieldId":response['dataValues'].fieldId,
+          "fieldTitle":"",
+          "typeStudy":response['dataValues'].typeStudy,
+          "yearStudy":response['dataValues'].yearStudy,
+          "additional":response['dataValues'].additional,
+          "photo":response['dataValues'].photo,
+          "access":response['dataValues'].access,
+          "status":response['dataValues'].status,
+          "password":response['dataValues'].password
+          
+          }
+          
+        return res.status(200).json({data:data})
 
     }else{
        
