@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IkhEeWgyU0JXaDYiLCJpYXQiOjE2MjY3ODgzNjcsImV4cCI6MTYyNjc5NTU2N30.9hYQKg1poynO7--8ynRBg0hmcTrpxp1hsTTYESGR4y4
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IktRbDVnTGVRRWciLCJpYXQiOjE2MjY4NzczMjIsImV4cCI6MTYyNjg4NDUyMn0.71uspdbBeHqqKh4Syu0SXQPayB1hSPHhgMuy-LxMB48
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -357,7 +357,7 @@ Authorization: Bearer {{token}}
 "name":"mazhar zarsaw",
 "birthday":"2021-07-20",
 "sex":false,
-"email":"m.zarsaw@yahoo.com",
+"email":"m.zarsaw@33yahoo.com",
 "phone":"09186882744",
 "address":"kermanshah",
 "country":"IR-ИСЛАМСКАЯ РЕСПУБЛИКА ИРАН (ИРАН)",
