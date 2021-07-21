@@ -128,10 +128,10 @@ subject.push(new Model.Subject("Дифференциальные уравнен�
 //Model
 //Title,SubjectId,UrlModel,Parameters,Description,GeneralModel,Status
 var model = [];
-model.push(new Model.Model("ИИ модель 1",1,"http://37.18.79.144/ai/api/","1","Описание 1",0,1));
-model.push(new Model.Model("ИИ модель 2",3,"http://37.18.79.144/ai/api/","2","Описание 2",1,1));
-model.push(new Model.Model("ИИ модель 3",4,"http://37.18.79.144/ai/api/","3","Описание 3",0,1));
-model.push(new Model.Model("ИИ модель 4",5,"http://37.18.79.144/ai/api/","4","Описание 4",1,1));
+model.push(new Model.Model("ИИ модель 1",1,"http://37.18.79.144/ai/api/","Описание 1",0,1));
+model.push(new Model.Model("ИИ модель 2",3,"http://37.18.79.144/ai/api/","Описание 2",1,1));
+model.push(new Model.Model("ИИ модель 3",4,"http://37.18.79.144/ai/api/","Описание 3",0,1));
+model.push(new Model.Model("ИИ модель 4",5,"http://37.18.79.144/ai/api/","Описание 4",1,1));
 
 //Faq
 //GroupId,Question,Answer,Status

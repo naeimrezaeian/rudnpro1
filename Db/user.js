@@ -48,7 +48,7 @@ module.exports = function(sequelize,Sequelize) {
         },       
         fieldId:{
             type: Sequelize.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         typeStudy:{
             type: Sequelize.INTEGER,

@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IktRbDVnTGVRRWciLCJpYXQiOjE2MjY4NzczMjIsImV4cCI6MTYyNjg4NDUyMn0.71uspdbBeHqqKh4Syu0SXQPayB1hSPHhgMuy-LxMB48
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImFlTE5EUHM0WksiLCJpYXQiOjE2MjY4ODU3NDcsImV4cCI6MTYyNjg5Mjk0N30.A-FFR2G1j59-a89ZwxSBUDCmnE1rexvASnSkNpw17mQ
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -352,28 +352,25 @@ POST {{hostname2}}/User
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-{
-"id":"",
-"name":"mazhar zarsaw",
-"birthday":"2021-07-20",
+{"id":"",
+"name":"mazhar admin",
+"birthday":"2021-07-21",
 "sex":false,
-"email":"m.zarsaw@33yahoo.com",
+"email":"a23@rudn.ru",
 "phone":"09186882744",
 "address":"kermanshah",
 "country":"IR-ИСЛАМСКАЯ РЕСПУБЛИКА ИРАН (ИРАН)",
 "city":"kermanshah",
-"facultyId":2,
+"facultyId":0,
 "facultyTitle":"",
-"departmentId":3,
+"departmentId":0,
 "departmentTitle":"",
-"fieldId":3,
+"fieldId":null,
 "fieldTitle":"",
-"typeStudy":1,
-"yearStudy":"2019-2020",
+"typeStudy":0,
+"yearStudy":"2020-2021",
 "additional":"desc 1",
-"photo":"2ba68a1125d9f012c5142d9556bfa8315ad9.jpg",
-"access":"student",
-"status":0,
-"password":"1234"
-
-}
+"photo":"1efe472080f1a17de888f91abb31e60b83ae.jpg",
+"access":"admin",
+"status":1,
+"password":"1234"}
