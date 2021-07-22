@@ -140,8 +140,49 @@ GET {{hostname2}}/Field/Filter/1/0/0/0/0
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
+
+
+
+
+###
+
+
+GET {{hostname}}/GroupRelation/All
+Content-Type: application/json
+Authorization: Bearer {{token}}
+###
+
+
+GET {{hostname}}/GroupRelation/10
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+####
+POST {{hostname}}/GroupRelation
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "groupId":1,
+    "userId":"6ebd5269-1f59-4cfe-bdef-53c90e8cf1d7",
+    "subjectId":3,
+    "status":1
+}
+
+
+###
+
 ###
 #/:groupid/:userid/:yearstudy/:facultyid/:departmentid/:fieldid/:subjectid/:offset/:limit
+DELETE {{hostname}}/GroupRelation
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "items":[9,8,7]
+}
+###
+
 GET {{hostname}}/GroupRelation/Filter/0/0/0/0/0/0/0/0/0
 Content-Type: application/json
 Authorization: Bearer {{token}}
@@ -188,6 +229,13 @@ Authorization: Bearer {{token}}
 }
 
 
+
+###
+#/Filter/:relationId
+GET {{hostname2}}/SubGroupStudent/Filter/Subject/108e5270-91ee-471b-adfc-b874992794b1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
 ###
 #/Filter/:relationId
 GET {{hostname2}}/SubGroupStudent/Filter/1
@@ -195,7 +243,7 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ###
-GET {{hostname}}/SubGroupStudent/Filter/List/1
+GET {{hostname2}}/SubGroupStudent/Filter/List/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
