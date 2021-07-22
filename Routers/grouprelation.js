@@ -7,11 +7,26 @@ const {FindDuplicate }= require('../Middleware/Duplicate')
 const router = express.Router()
 
 
+
+router.get('/All',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
+   
+    await Database.GroupRelation.findAll().then( result =>{    
+        if (result){        
+            return res.status(200).json({  data : result })
+        }else{
+            return res.status(404).json({message:Config.ERROR_404})
+        }   
+      }).catch(error => {
+        return res.status(500).json({message:Config.ERROR_500,errors:error})      
+      })
+
+})
+
 router.get('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
     const Id=req.params.id
         await Database.GroupRelation.findOne({
        where: {
-           Id: Id,
+           id: Id,
            status: 1
        }
    }).then( result =>{    
@@ -119,14 +134,14 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSch
 
 
 Database.GroupRelation.create({                  
-    goupId: req.body.groupId,    
+    groupId: req.body.groupId,    
     userId: req.body.userId,
     subjectId: req.body.subjectId,
     status : req.body.status
     
 }).then(function(response){
 if (response){        
-    return res.status(200).json({message:Config.ERROR_200,Id:response['dataValues']['Id']})
+    return res.status(200).json({message:Config.ERROR_200,data:response['dataValues'].id})
 }else{
     
     return res.status(400).json({message:Config.ERROR_400})
