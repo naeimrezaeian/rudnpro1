@@ -123,7 +123,7 @@ if (UserId!=0){
      {model:Database.User,as:'recipient',attributes:['name','photo'] },
      {model:Database.Message,attributes:['msgContent','msgFile'] }],   
   }).then( result =>{   
-   console.log(result)
+   //console.log(result)
   if (result.rows){   
     
     var obj =result.rows.map(data => {    

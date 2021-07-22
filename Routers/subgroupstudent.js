@@ -43,7 +43,7 @@ async function GetUserSubgroup(SubGroupId){
     return await Database.SubGroupStudent.findAll({
         attributes:['id','userId',
         [Database.Sequelize.col('user.name'), 'usrerName'],
-        [Database.Sequelize.col('user.photo'), 'photo']
+        [Database.Sequelize.col('user.photo'), 'userPhoto'],'subgroupId'
     ],
         where:{subgroupId:{[Op.in]:SubGroupId}},
         include:[
@@ -57,7 +57,8 @@ async function GetGroupStudents(GroupId,UserList){
     return await Database.GroupStudent.findAll({
         attributes:['id','userId',
         [Database.Sequelize.col('user.name'), 'usrerName'],
-        [Database.Sequelize.col('user.photo'), 'photo']
+        [Database.Sequelize.col('user.photo'), 'userPhoto'],
+        'groupId',[Database.Sequelize.col('group.title'), 'groupTitle']
     ],
         where:{
             [Op.and]:[
@@ -66,12 +67,67 @@ async function GetGroupStudents(GroupId,UserList){
             ]
         },
         include:[
-            {model:Database.User,attributes:[]}
+            {model:Database.User,attributes:[]},
+            {model:Database.Group,attributes:[]}
         ],       
         raw:true
        })     
 }
 
+async function GetUserSubject(userId){
+    return await Database.GroupRelation.findAll({
+        attributes: [  'subjectId'
+        ,[Database.Sequelize.col('subject.title'), 'subjectTitle']
+    
+    ],
+        where: {userId:userId},
+        
+        include:[
+            {model:Database.Subject,attributes:[]}
+        ], 
+        group: ['subjectId'],
+        raw:true
+  
+    })  
+
+}
+
+async function GetUserGroup(userId,subjectId){
+    return await Database.GroupRelation.findAll({
+        attributes: [ 'id', 'groupId'
+        ,[Database.Sequelize.col('group.title'), 'groupTitle']
+    
+    ],
+        where: {userId:userId,subjectId:subjectId},
+        
+        include:[
+            {model:Database.Group,attributes:[]}
+        ], 
+        
+        raw:true
+  
+    })  
+
+}
+router.get('/Filter/Subject/:Id',authChek,authRole([Config.ROLE.ADMIN]), async function (req, res)  {
+    const userId = req.params.Id
+    //result={}
+    SubjectList=await GetUserSubject(userId)
+
+
+    const getData = await Promise.all(SubjectList.map(async (subject) => {
+        groupList=await GetUserGroup(userId,subject.subjectId)
+       console.log(groupList)
+        return {subjectId:subject.subjectId,subjectTitle:subject.subjectTitle,groupList:groupList}
+    }));
+
+    //console.log(getData)
+    return res.status(200).json({  data :{items:getData} }) 
+       
+
+    
+
+})
 
 
 router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
@@ -102,9 +158,9 @@ router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROL
     }else{
          GroupList= await GetGroupStudents(GroupId,[]) 
       }
-      infodata={gropupId:GroupId,groupName:GroupTitle,FirstSubgroupId:FirstSubgroupId,FirstSubGroupName:FirstSubgroupTitle}
+      infodata={gropupId:GroupId,groupName:GroupTitle,FfrstSubgroupId:FirstSubgroupId,firstSubGroupName:FirstSubgroupTitle}
       metadata={}
-    return res.status(200).json({  data :{SubgroupList:SubgroupList,FirstSubgroupList:FirstSubgroupStudentList,GroupList:GroupList,infodata:infodata,metadata:metadata} } ) 
+    return res.status(200).json({  data :{subgroupList:SubgroupList,subGroupStudent:FirstSubgroupStudentList,groupStudents:GroupList,infodata:infodata,metadata:metadata} } ) 
     }else{
         return res.status(404).json({message:Config.ERROR_404})
     }   

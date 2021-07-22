@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImFlTE5EUHM0WksiLCJpYXQiOjE2MjY4ODU3NDcsImV4cCI6MTYyNjg5Mjk0N30.A-FFR2G1j59-a89ZwxSBUDCmnE1rexvASnSkNpw17mQ
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBXWFBtSjd4TE4iLCJpYXQiOjE2MjY5MzM2NTgsImV4cCI6MTYyNjk0MDg1OH0.phefzpSEJbC8MiOm08HUc7Gkeq3BX8bcke79BW1ALIk
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -190,12 +190,17 @@ Authorization: Bearer {{token}}
 
 ###
 #/Filter/:relationId
-GET {{hostname}}/SubGroupStudent/Filter/1
+GET {{hostname2}}/SubGroupStudent/Filter/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ###
 GET {{hostname}}/SubGroupStudent/Filter/List/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{hostname2}}/SubGroupStudent/Filter/Subject/d449a796-abec-4758-b255-fbd3a5eb2b5b
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -356,7 +361,36 @@ Authorization: Bearer {{token}}
 "name":"mazhar admin",
 "birthday":"2021-07-21",
 "sex":false,
-"email":"a23@rudn.ru",
+"email":"a234@rudn.ru",
+"phone":"09186882744",
+"address":"kermanshah",
+"country":"IR-ИСЛАМСКАЯ РЕСПУБЛИКА ИРАН (ИРАН)",
+"city":"kermanshah",
+"facultyId":0,
+"facultyTitle":"",
+"departmentId":0,
+"departmentTitle":"",
+"fieldId":null,
+"fieldTitle":"",
+"typeStudy":0,
+"yearStudy":"2020-2021",
+"additional":"desc 1",
+"photo":"1efe472080f1a17de888f91abb31e60b83ae.jpg",
+"access":"admin",
+"status":1,
+"password":"1234"}
+
+####
+
+PUT {{hostname2}}/User/e895ca70-42dd-4fee-90bc-f0c24df483dd
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{"id":"",
+"name":"mazhar admin333",
+"birthday":"2021-07-21",
+"sex":false,
+"email":"a234@rudn.ru",
 "phone":"09186882744",
 "address":"kermanshah",
 "country":"IR-ИСЛАМСКАЯ РЕСПУБЛИКА ИРАН (ИРАН)",
