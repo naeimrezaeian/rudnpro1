@@ -89,7 +89,7 @@ const groupstudentsSchema = [
 
 const grouprelationSchema = [
   body('groupId').isInt(),
-  body('teacherId').isInt(),
+  body('userId').isInt(),
   body('subjectId').isInt(),
   body('status').isInt()
 

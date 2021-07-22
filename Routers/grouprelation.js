@@ -120,7 +120,7 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSch
 
 Database.GroupRelation.create({                  
     GroupId: req.body.groupId,    
-    TeacherId: req.body.teacherId,
+    UserId: req.body.UserId,
     SubjectId: req.body.subjectId,
     Status : req.body.status
     
@@ -147,7 +147,7 @@ async function  (req, res) {
      await Database.GroupRelation.update(
         {
         GroupId: req.body.GroupId,    
-        TeacherId: req.body.TeacherId,
+        UserId: req.body.UserId,
         SubjectId: req.body.SubjectId,
         Status : req.body.Status
         },
