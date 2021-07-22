@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6InBXWFBtSjd4TE4iLCJpYXQiOjE2MjY5MzM2NTgsImV4cCI6MTYyNjk0MDg1OH0.phefzpSEJbC8MiOm08HUc7Gkeq3BX8bcke79BW1ALIk
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6Ik9wempMOUJ4QmUiLCJpYXQiOjE2MjY5NTUxMzQsImV4cCI6MTYyNjk2MjMzNH0.NaJZ4ijPQ_6SmNocBXXJVL4r-HOHMWzGzYc7F48XxFI
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -199,10 +199,7 @@ GET {{hostname}}/SubGroupStudent/Filter/List/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-###
-GET {{hostname2}}/SubGroupStudent/Filter/Subject/d449a796-abec-4758-b255-fbd3a5eb2b5b
-Content-Type: application/json
-Authorization: Bearer {{token}}
+
 
 ###
 POST {{hostname}}/SubGroupStudent
