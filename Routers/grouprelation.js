@@ -59,7 +59,7 @@ router.get('/Filter/:groupid/:userid/:yearstudy/:facultyid/:departmentid/:fieldi
       [Database.Sequelize.col('subject.field.id'), 'fieldId'],[Database.Sequelize.col('subject.field.title'), 'fieldTitle'],
       [Database.Sequelize.col('subject.field.department.id'), 'departmentId'],[Database.Sequelize.col('subject.field.department.title'), 'departmentTitle'],
       [Database.Sequelize.col('subject.field.department.faculty.id'), 'facultyId'],[Database.Sequelize.col('subject.field.department.faculty.title'), 'facultyTitle']
-       
+       ,'status'
     ],
       include:[ 
           { model: Database.Subject , attributes: [],
