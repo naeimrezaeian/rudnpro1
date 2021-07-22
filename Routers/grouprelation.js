@@ -114,13 +114,13 @@ router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, re
 
    
     
-router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSchema),FindDuplicate(Database.GroupRelation,["groupId","teacherId","subjectId"])
+router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSchema),FindDuplicate(Database.GroupRelation,["groupId","userId","subjectId"])
 ,async function (req,res) {  
 
 
 Database.GroupRelation.create({                  
     goupId: req.body.groupId,    
-    userId: req.body.UserId,
+    userId: req.body.userId,
     subjectId: req.body.subjectId,
     status : req.body.status
     
@@ -138,7 +138,7 @@ if (response){
 })
 
 
-router.put('/:id',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSchema),FindDuplicate(Database.GroupRelation,["groupId","teacherId","subjectId"]),
+router.put('/:id',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSchema),FindDuplicate(Database.GroupRelation,["groupId","userId","subjectId"]),
 async function  (req, res) {   
 
    
