@@ -119,10 +119,10 @@ router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(grouprelationSch
 
 
 Database.GroupRelation.create({                  
-    GroupId: req.body.groupId,    
-    UserId: req.body.UserId,
-    SubjectId: req.body.subjectId,
-    Status : req.body.status
+    goupId: req.body.groupId,    
+    userId: req.body.UserId,
+    subjectId: req.body.subjectId,
+    status : req.body.status
     
 }).then(function(response){
 if (response){        
@@ -146,10 +146,10 @@ async function  (req, res) {
    
      await Database.GroupRelation.update(
         {
-        GroupId: req.body.GroupId,    
-        UserId: req.body.UserId,
-        SubjectId: req.body.SubjectId,
-        Status : req.body.Status
+        groupId: req.body.groupId,    
+        userId: req.body.userId,
+        subjectId: req.body.subjectId,
+        status : req.body.status
         },
        { where: {Id: dataId, status: 1}}
        ).then(function(result) {
