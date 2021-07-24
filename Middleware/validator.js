@@ -186,7 +186,7 @@ const examratingSchema = [
 //Title,GroupId,Status
 const subgroupSchema = [
   body('title').isLength({ min: 1 }),
-  body('groupId').isInt(),  
+  body('grouprelationId').isInt(),  
   body('status').isInt(),
 ]
 

@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IjBFUENjZVViemMiLCJpYXQiOjE2MjcxMTE3OTgsImV4cCI6MTYyNzExODk5OH0.4BOdzrBZS8B8rMsYrzxlbaxD_uUQPdD-2Tp2xU5SbuI
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImM2MWNqeUdtU3giLCJpYXQiOjE2MjcxNDgwNzgsImV4cCI6MTYyNzE1NTI3OH0.Mjxtj5tHhFKdw--x-mk23oJSTiiLhOpWS9EUKY5BzzA
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -453,3 +453,23 @@ Authorization: Bearer {{token}}
 "access":"admin",
 "status":1,
 "password":"1234"}
+
+
+
+###
+POST {{hostname}}/SubGroup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title":"12222333333232233134",
+    "grouprelationId":1,
+    "status":1,
+
+"dataArray":[
+         {"userId":"6ebd5269-1f59-4cfe-bdef-53c90e8cf1d7"},
+         {"userId":"3518492b-d529-489e-8fd3-17b0ef0108ae"}
+       
+      
+    ]
+}
