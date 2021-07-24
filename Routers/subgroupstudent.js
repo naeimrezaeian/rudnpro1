@@ -56,7 +56,7 @@ async function GetUserSubgroup(SubGroupId){
 async function GetGroupStudents(GroupId,UserList){
     return await Database.GroupStudent.findAll({
         attributes:['id','userId',
-        [Database.Sequelize.col('user.name'), 'usrerName'],
+        [Database.Sequelize.col('user.name'), 'userName'],
         [Database.Sequelize.col('user.photo'), 'userPhoto'],
         'groupId',[Database.Sequelize.col('group.title'), 'groupTitle']
     ],
@@ -158,7 +158,7 @@ router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROL
     }else{
          GroupList= await GetGroupStudents(GroupId,[]) 
       }
-      infodata={gropupId:GroupId,groupName:GroupTitle,FfrstSubgroupId:FirstSubgroupId,firstSubGroupName:FirstSubgroupTitle}
+      infodata={gropupId:GroupId,groupName:GroupTitle,firstSubgroupId:FirstSubgroupId,firstSubGroupName:FirstSubgroupTitle}
       metadata={}
     return res.status(200).json({  data :{subgroupList:SubgroupList,subGroupStudent:FirstSubgroupStudentList,groupStudents:GroupList,infodata:infodata,metadata:metadata} } ) 
     }else{

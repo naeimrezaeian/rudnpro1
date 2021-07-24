@@ -6,8 +6,6 @@ const { grouprelationSchema, validate } = require('../Middleware/validator.js');
 const {FindDuplicate }= require('../Middleware/Duplicate')
 const router = express.Router()
 
-
-
 router.get('/All',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
    
     await Database.GroupRelation.findAll().then( result =>{    
