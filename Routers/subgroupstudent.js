@@ -42,7 +42,7 @@ async function GetUserSubgroup(SubGroupId){
    
     return await Database.SubGroupStudent.findAll({
         attributes:['id','userId',
-        [Database.Sequelize.col('user.name'), 'usrerName'],
+        [Database.Sequelize.col('user.name'), 'userName'],
         [Database.Sequelize.col('user.photo'), 'userPhoto'],'subgroupId'
     ],
         where:{subgroupId:{[Op.in]:SubGroupId}},
@@ -139,7 +139,16 @@ router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROL
     const GroupId = CheckRelation[0].groupId 
     const GroupTitle =  CheckRelation[0].groupTitle 
     
-    const SubgroupList = await GetListSubgroup(RelationId)   
+    const SubgroupList = await GetListSubgroup(RelationId)  
+    const subgroupLenth=SubgroupList.length
+    
+        for (var i= 0; i < subgroupLenth;i++){
+            let Students=await GetUserSubgroup( [SubgroupList[i].id])
+            
+            SubgroupList[i]['students']=Students
+        }
+   
+    
     FirstSubgroupStudentList=null
     FirstSubgroupId=null
     FirstSubgroupTitle=null
@@ -149,7 +158,7 @@ router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROL
     const SubGroupId = SubgroupList.map(subgroup =>subgroup.id )    
     FirstSubgroupId=SubGroupId[0]   
     FirstSubgroupTitle=SubgroupList[0].title
-    FirstSubgroupStudentList =  await GetUserSubgroup([FirstSubgroupId]) 
+    //FirstSubgroupStudentList =  await GetUserSubgroup([FirstSubgroupId]) 
 
     const SubGroupUserList= await GetUserSubgroup(SubGroupId)   
     const UserList=SubGroupUserList.map(user=>user.userId)   
@@ -158,9 +167,9 @@ router.get('/Filter/:relationId',authChek,authRole([Config.ROLE.ADMIN,Config.ROL
     }else{
          GroupList= await GetGroupStudents(GroupId,[]) 
       }
-      infodata={gropupId:GroupId,groupName:GroupTitle,firstSubgroupId:FirstSubgroupId,firstSubGroupName:FirstSubgroupTitle}
+      infodata={groupId:GroupId,groupName:GroupTitle,firstSubgroupId:FirstSubgroupId,firstSubGroupName:FirstSubgroupTitle}
       metadata={}
-    return res.status(200).json({  data :{subgroupList:SubgroupList,subGroupStudent:FirstSubgroupStudentList,groupStudents:GroupList,infodata:infodata,metadata:metadata} } ) 
+    return res.status(200).json({  data :{subgroupList:SubgroupList,groupStudents:GroupList,infodata:infodata,metadata:metadata} } ) 
     }else{
         return res.status(404).json({message:Config.ERROR_404})
     }   
