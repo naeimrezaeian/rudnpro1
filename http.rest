@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6ImM2MWNqeUdtU3giLCJpYXQiOjE2MjcxNDgwNzgsImV4cCI6MTYyNzE1NTI3OH0.Mjxtj5tHhFKdw--x-mk23oJSTiiLhOpWS9EUKY5BzzA
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6Im9KM09KeUtORGYiLCJpYXQiOjE2Mjc1NDY5ODUsImV4cCI6MTYyNzU1NDE4NX0.FXKjD_u66_uAXTtUQ30pCxkWtO1qE7-HkEiLMhgNpbo
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -454,6 +454,16 @@ Authorization: Bearer {{token}}
 "status":1,
 "password":"1234"}
 
+###
+PUT {{hostname2}}/SubGroup/24
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title":"12333222333333232233134",
+    "grouprelationId":1,
+    "status":1
+}
 
 
 ###

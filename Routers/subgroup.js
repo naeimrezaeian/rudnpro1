@@ -184,7 +184,7 @@ if (response){
 
 
 router.put('/:id',authChek,authRole([Config.ROLE.ADMIN]),validate(subgroupSchema),
-FindDuplicate(Database.SubGroup,["title","groupId"]),
+FindDuplicate(Database.SubGroup,["title","grouprelationId"]),
 async function  (req, res) {   
 
    
@@ -192,11 +192,11 @@ async function  (req, res) {
    
      await Database.SubGroup.update(
         {
-        Title: req.body.title,    
-        GroupId: req.body.groupId, 
-        Status: req.body.status,
+        title: req.body.title,    
+        grouprelationId: req.body.grouprelationId, 
+        status: req.body.status,
         },
-       { where: {Id: dataId, status: 1}}
+       { where: {id: dataId, status: 1}}
        ).then(function(result) {
            if (result==1){
         return res.status(200).json({message:Config.ERROR_200})
