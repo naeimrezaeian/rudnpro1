@@ -64,18 +64,18 @@ const router = express.Router()
 
    
     
-    router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(facultySchema)
+router.post('/',authChek,authRole([Config.ROLE.ADMIN]),validate(facultySchema)
 ,async function (req,res) {  
    
     
     Database.Faculty.create({
-        Title: req.body.title,
-        Address : req.body.address,
-        Phone : req.body.phone,
-        Email : req.body.email,
-        Description : req.body.description,
-        Photo : req.body.photo ,
-        Status : req.body.status
+        title: req.body.title,
+        address : req.body.address,
+        phone : req.body.phone,
+        email : req.body.email,
+        description : req.body.description,
+        photo : req.body.photo ,
+        status : req.body.status
        
 }).then(function(response){
     if (response){        
@@ -99,15 +99,15 @@ async function  (req, res) {
    
      await Database.Faculty.update(
         {
-            Title: req.body.title,
-            Address : req.body.address,
-            Phone : req.body.phone,
-            Email : req.body.email,
-            Description : req.body.description,
-            Photo : req.body.photo ,
-            Status : req.body.status
+            title: req.body.title,
+            address : req.body.address,
+            phone : req.body.phone,
+            email : req.body.email,
+            description : req.body.description,
+            photo : req.body.photo ,
+            status : req.body.status
         },
-       { where: {Id: dataId, status: 1}}
+       { where: {id: dataId, status: 1}}
        ).then(function(result) {
            if (result==1){
         return res.status(200).json({message:Config.ERROR_200})

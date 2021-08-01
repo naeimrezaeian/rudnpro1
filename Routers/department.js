@@ -90,10 +90,10 @@ router.delete('/',authChek,authRole([Config.ROLE.ADMIN]), async function(req, re
    
     
     Database.Department.create({
-        Title: req.body.title,
-        FacultyId : req.body.facultyId,        
-        Description : req.body.description,      
-        Status : req.body.status
+        title: req.body.title,
+        facultyId : req.body.facultyId,        
+        description : req.body.description,      
+        status : req.body.status
        
 }).then(function(response){
     if (response){        
@@ -117,12 +117,12 @@ async function  (req, res) {
    
      await Database.Department.update(
         {
-            Title: req.body.title,
-            FacultyId : req.body.facultyId,        
-            Description : req.body.description,      
-            Status : req.body.status
+            title: req.body.title,
+            facultyId : req.body.facultyId,        
+            description : req.body.description,      
+            status : req.body.status
         },
-       { where: {Id: dataId, status: 1}}
+       { where: {id: dataId, status: 1}}
        ).then(function(result) {
            if (result==1){
         return res.status(200).json({message:Config.ERROR_200})

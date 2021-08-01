@@ -46,14 +46,16 @@ router.get('/:id',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Confi
      
     })
 
-router.get('/Filter/:subjectid/:offset/:limit',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
+router.get('/Filter/:userid/:subjectid/:offset/:limit',authChek,authRole([Config.ROLE.ADMIN,Config.ROLE.STUDENT,Config.ROLE.TEACHER]), async function (req, res)  {
    
+   const UserId = req.params.userid  || 0   
    const SubjectId = req.params.subjectid  || 0    
    const offset = parseInt(req.params.offset) || 0
    const limit = parseInt(req.params.limit) || 0    
 
    let where = {};
    let limits = {};       
+   if (UserId !=0){  where.userId=UserId }  
    if (SubjectId !=0){  where.subjectId=SubjectId }  
    if (limit != 0 ){      limits={ offset: offset,limit: limit }      }
 

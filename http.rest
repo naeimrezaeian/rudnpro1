@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6Im9KM09KeUtORGYiLCJpYXQiOjE2Mjc1NDY5ODUsImV4cCI6MTYyNzU1NDE4NX0.FXKjD_u66_uAXTtUQ30pCxkWtO1qE7-HkEiLMhgNpbo
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmMyMGE4LTY4MmMtNGM0Ni1iMWE1LTRlMjY1NTZmMjIzZiIsInJvbGUiOiJhZG1pbiIsImp0aSI6IklPT1BYMUQ5QnkiLCJpYXQiOjE2Mjc3OTkzNzcsImV4cCI6MTYyNzgwNjU3N30.jV1wG6kyeb89Vl8XE3QBqljQ9ANfakCQ2yheIXYAzMU
 @hostname2=http://127.0.0.1:3000/api
 @hostname=http://188.126.44.111/api
 
@@ -107,8 +107,8 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ###
-### /Filter/:subjectid/:offset/:limit
-GET {{hostname}}/SubjectUser/Filter/0/0/0
+### /Filter/userid/:subjectid/:offset/:limit
+GET {{hostname2}}/SubjectUser/Filter/0/0/0/0
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -123,6 +123,15 @@ Authorization: Bearer {{token}}
 }
 
 
+###
+
+DELETE {{hostname}}/SubjectUser
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "items":[9,8,7]
+}
 
 ###
 GET {{hostname}}/Faculty/0/0/0
@@ -482,4 +491,39 @@ Authorization: Bearer {{token}}
        
       
     ]
+}
+
+### Add Faculty to database
+POST  {{hostname}}/Faculty
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "test1",
+    "address" : "sdfsdfsd",
+    "phone" : "7363673",
+    "email" : "faqq@qrudn.ru",
+    "description" : "this is a test",
+    "photo" : "f1.jpg" ,
+    "status" : 1
+}
+
+### GET /:id/:offset/:limit
+GET  {{hostname}}/Faculty/0/0/0
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+PUT  {{hostname}}/Faculty/11
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "test123",
+    "address" : "sdfsdfsd",
+    "phone" : "7363673",
+    "email" : "faqq@qrudn.ru",
+    "description" : "this is a test",
+    "photo" : "f1.jpg" ,
+    "status" : 1
 }

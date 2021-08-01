@@ -98,11 +98,11 @@ router.get('/Filter/:facultyId/:departmentid/:coursecode/:offset/:limit',authChe
    
     
     Database.Field.create({
-        Title: req.body.title,                
-        Description : req.body.description,  
-        DepartmentId :req.body.departmentId,
-        CourseCode: req.body. courseCode ,
-        Status : req.body.status
+        title: req.body.title,                
+        description : req.body.description,  
+        departmentId :req.body.departmentId,
+        courseCode: req.body. courseCode ,
+        status : req.body.status
        
 }).then(function(response){
     if (response){        
@@ -126,13 +126,13 @@ async function  (req, res) {
    
      await Database.Field.update(
         {
-            Title: req.body.title,                
-            Description : req.body.description,  
-            DepartmentId :req.body.departmentId,
-            CourseCode: req.body. courseCode ,
-            Status : req.body.status
+            title: req.body.title,                
+            description : req.body.description,  
+            departmentId :req.body.departmentId,
+            courseCode: req.body. courseCode ,
+            status : req.body.status
         },
-       { where: {Id: dataId, status: 1}}
+       { where: {id: dataId, status: 1}}
        ).then(function(result) {
            if (result==1){
         return res.status(200).json({message:Config.ERROR_200})
